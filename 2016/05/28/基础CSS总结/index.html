@@ -1,124 +1,339 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <title>基础CSS总结 | Guanyu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC]
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
 基础知识总结CSS总结基础CSSCSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。
-常用基础样式：
-
-详细解释：
-
-布局
-
-float :  浮动的元素可以向左或向右移动，直到外边缘碰到包含元素或另一个浮动元素的边框为止。浮动的元素脱离文档流，文档流中其他元素忽视它。  浮动元素会">
+常用基础样式：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础CSS总结">
 <meta property="og:url" content="http://yoursite.com/2016/05/28/基础CSS总结/index.html">
 <meta property="og:site_name" content="Guanyu">
 <meta property="og:description" content="[TOC]
 基础知识总结CSS总结基础CSSCSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。
-常用基础样式：
-
-详细解释：
-
-布局
-
-float :  浮动的元素可以向左或向右移动，直到外边缘碰到包含元素或另一个浮动元素的边框为止。浮动的元素脱离文档流，文档流中其他元素忽视它。  浮动元素会">
+常用基础样式：">
 <meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/csszongjie.png">
 <meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/ct_boxmodel.gif">
-<meta property="og:updated_time" content="2016-05-28T02:44:54.254Z">
+<meta property="og:updated_time" content="2016-05-28T04:49:45.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础CSS总结">
 <meta name="twitter:description" content="[TOC]
 基础知识总结CSS总结基础CSSCSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。
-常用基础样式：
-
-详细解释：
-
-布局
-
-float :  浮动的元素可以向左或向右移动，直到外边缘碰到包含元素或另一个浮动元素的边框为止。浮动的元素脱离文档流，文档流中其他元素忽视它。  浮动元素会">
+常用基础样式：">
 <meta name="twitter:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/csszongjie.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Guanyu" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
 
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 基础CSS总结 | Guanyu </title>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Guanyu</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">前端路漫漫</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-基础CSS总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/28/基础CSS总结/" class="article-date">
-  <time datetime="2016-05-28T02:38:00.000Z" itemprop="datePublished">2016-05-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      基础CSS总结
-    </h1>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
   
 
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Guanyu</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端路漫漫</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'DcAx29JJ5Tc1oyvctWyc','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基础CSS总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-28T10:38:00+08:00" content="2016-05-28">
+              2016-05-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <p>[TOC]</p>
 <h2 id="基础知识总结"><a href="#基础知识总结" class="headerlink" title="基础知识总结"></a>基础知识总结</h2><h3 id="CSS总结"><a href="#CSS总结" class="headerlink" title="CSS总结"></a>CSS总结</h3><h4 id="基础CSS"><a href="#基础CSS" class="headerlink" title="基础CSS"></a>基础CSS</h4><p>CSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。</p>
 <p>常用基础样式：</p>
+<a id="more"></a>
 <p><img src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/csszongjie.png" alt="常用基础样式" title="tututu"></p>
 <p>详细解释：</p>
 <ul>
@@ -671,115 +886,310 @@ float :  浮动的元素可以向左或向右移动，直到外边缘碰到包�
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/28/基础CSS总结/" data-id="cioqk2iw40001joq1a7kqozlp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
 
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/27/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-<nav id="article-nav">
-  
-  
-    <a href="/2016/05/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+  </div>
 
-  
-</article>
 
-</section>
+        </div>
         
-          <aside id="sidebar">
+          
   
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a>
-    </div>
-  </div>
+      
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/05/28/基础CSS总结/">基础CSS总结</a>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
           </li>
-        
-          <li>
-            <a href="/2016/05/27/hello-world/">Hello World</a>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
           </li>
-        
-      </ul>
-    </div>
-  </div>
+        </ul>
+      
 
-  
-</aside>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/9473858.jpg"
+               alt="Guanyu Chen" />
+          <p class="site-author-name" itemprop="name">Guanyu Chen</p>
+          <p class="site-description motion-element" itemprop="description">关于开发与人生</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GuanyuChen" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3493100560/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-chen-88-5" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识总结"><span class="nav-number">1.</span> <span class="nav-text">基础知识总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS总结"><span class="nav-number">1.1.</span> <span class="nav-text">CSS总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础CSS"><span class="nav-number">1.1.1.</span> <span class="nav-text">基础CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS高级"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS高级</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对齐"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导航栏"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">导航栏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图片透明"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">图片透明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSS3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#边框"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">边框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字体"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#转换"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">转换</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2D转换"><span class="nav-number">1.1.3.4.1.</span> <span class="nav-text">2D转换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3D转换"><span class="nav-number">1.1.3.4.2.</span> <span class="nav-text">3D转换</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过渡"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动画"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多列"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">多列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用户界面"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">用户界面</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 Guanyu Chen<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guanyu Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
-    
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
 
 
-<script src="/js/script.js"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  </div>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
 </body>
 </html>
