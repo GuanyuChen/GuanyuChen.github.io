@@ -1,0 +1,1104 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="React,Webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+Webpack基础webpack是一款强大的 模块加载器兼打包工具 ，能把各种资源，例如JS(含JSX)、coffee、样式(含less/sass)、图片等都作为模块来处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React学习笔记-Webpack基础">
+<meta property="og:url" content="http://yoursite.com/2016/05/29/React学习笔记-Webpack基础/index.html">
+<meta property="og:site_name" content="Guanyu">
+<meta property="og:description" content="[TOC]
+Webpack基础webpack是一款强大的 模块加载器兼打包工具 ，能把各种资源，例如JS(含JSX)、coffee、样式(含less/sass)、图片等都作为模块来处理。">
+<meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image%2Fjpg%2Fwhat-is-webpack.png">
+<meta property="og:updated_time" content="2016-05-29T08:28:11.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React学习笔记-Webpack基础">
+<meta name="twitter:description" content="[TOC]
+Webpack基础webpack是一款强大的 模块加载器兼打包工具 ，能把各种资源，例如JS(含JSX)、coffee、样式(含less/sass)、图片等都作为模块来处理。">
+<meta name="twitter:image" content="http://o7v8inkz5.bkt.clouddn.com/image%2Fjpg%2Fwhat-is-webpack.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> React学习笔记-Webpack基础 | Guanyu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Guanyu</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">有关开发与人生</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '-zURDfE9QHufm-semmRx','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React学习笔记-Webpack基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-29T16:25:00+08:00" content="2016-05-29">
+              2016-05-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+
+          // 插入位置
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h3 id="Webpack基础"><a href="#Webpack基础" class="headerlink" title="Webpack基础"></a>Webpack基础</h3><p>webpack是一款强大的 <strong>模块加载器兼打包工具</strong> ，能把各种资源，例如JS(含JSX)、coffee、样式(含less/sass)、图片等都作为模块来处理。</p>
+<p><img src="http://o7v8inkz5.bkt.clouddn.com/image%2Fjpg%2Fwhat-is-webpack.png" alt="webpack示意图" title="webpack示意图"></p>
+<a id="more"></a>
+<h5 id="webpack的特别之处"><a href="#webpack的特别之处" class="headerlink" title="webpack的特别之处"></a>webpack的特别之处</h5><ul>
+<li>插件plugins: rich plugins &amp; flexible</li>
+<li>构建性能Performance: async I/O</li>
+<li>加载器Loaders: bundle any static resourse</li>
+<li>对模块的支持Support: supports AMD and CommonJS module styles &amp; support most existing libraries</li>
+<li>代码拆分Code Spliting: split your codebase into chunks(块)</li>
+<li>性能优化Optimizations: can do many optimizations to reduce the output size &amp; handle request caching </li>
+<li>开发者工具Development Tools: SourceMaps &amp; development server</li>
+<li>多端适用Multiple targets:web &amp; node.js  </li>
+</ul>
+<h4 id="1-初始化项目"><a href="#1-初始化项目" class="headerlink" title="1.初始化项目"></a>1.初始化项目</h4><p>创建一个项目</p>
+<pre><code>$ mkdir webpack-demos &amp;&amp; cd webpack-demos
+$ git init 
+$ touch README.md .gitignore
+$ npm init
+</code></pre><p>编辑.gitignore </p>
+<pre><code>node_modules
+*.log*
+.idea
+</code></pre><p>建立src和build两个目录</p>
+<pre><code># src 存放源码，build存放编译打包后的资源
+$ mkdir src build
+$ cd src &amp;&amp; touch index.js component.js
+$ cd ../build &amp;&amp; touch index.html
+
+/* src/index.js */
+var component = require(&apos;./component.js&apos;);
+component();
+
+/* src/component.js */
+module.exports = function(){
+    alert(&apos;component&apos;);
+}
+
+/* build/index.html */
+&lt;!DOCTYPE html&gt;
+&lt;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;webpack demos&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;apps&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>下载<code>webpack</code>和<code>webpack-dev-server</code></p>
+<pre><code># 安装并保存在项目的依赖中
+$ npm install --save-dev webpack webpack-dev-server
+# 如果想直接在命令行中使用webpack或webpack-dev-server命令，要全局安装(如果安装在项目中，可以在package.json中配置相应的命令)
+$ npm install -g webpack webpack-dev-server
+</code></pre><p>创建webpack的配置文件</p>
+<pre><code>$ touch webpack.config.js
+</code></pre><p>PS: <strong>请注意<code>webpack.config.js</code>这个命名，默认情况下要严格按照这个命名，不然会报<code>Output filename not configured</code>的错误</strong></p>
+<p><strong>如果不按照这个命名，要在webpack运行时通过–conf这个参数指定配置文件，如</strong>:<code>webpack --config conf.js</code></p>
+<p>进行基本配置</p>
+<pre><code>var path = require(&apos;path&apos;);
+module.exports = {
+    entry: path.resolve(__dirname,&apos;src/index.js&apos;);
+    output: {
+        path: path.resolve(__dirname,&apos;build&apos;),
+        filename: &apos;bundle.js&apos;
+    }
+}
+</code></pre><p>执行webpack命令(只有全局安装才能在命令行中使用webpack命令，否则需要在<code>package.json</code>中配置<code>scripts</code>)</p>
+<pre><code>$ webpack
+</code></pre><p>可以看到控制台出现如下信息: </p>
+<pre><code>Hash: cf7cc9272c664f542fcb
+Version: webpack 1.13.0
+Time: 80ms
+    Asset
+    ...
+    没写完
+</code></pre><p>build目录下也新增了一个bundle.js</p>
+<h4 id="2-webpack-和-webpack-dev-server-的基本命令"><a href="#2-webpack-和-webpack-dev-server-的基本命令" class="headerlink" title="2.webpack 和 webpack-dev-server 的基本命令"></a>2.webpack 和 webpack-dev-server 的基本命令</h4><pre><code>$ webpack --help
+</code></pre><ul>
+<li><code>webpack</code>  开发环境下编译</li>
+<li><code>webpack -p</code>  产品编译及压缩(把代码进行压缩和混淆，一般用于产品发布)</li>
+<li><code>webpack --watch</code>  开发环境下持续的监听文件变动来进行编译(非常快)</li>
+<li><code>webpack -d</code>  引入source maps</li>
+<li><code>webpack --progress</code>  显示构建进度</li>
+<li><code>webpack --dispaly-error-details</code>  显示打包过程中的出错信息</li>
+<li><code>webpack --profile</code>  输出性能数据，可以看到每一步的耗时</li>
+</ul>
+<p>我们使用<code>webpack-dev-server</code>来起一个本地服务进行调试</p>
+<pre><code>$ webpack-dev-server --progress --colors --content-base build   //指向build目录
+</code></pre><p>打开<code>localhost:8080</code>,回车即可</p>
+<p>参数解释：</p>
+<ul>
+<li><code>webpack-dev-server</code> : 在loaclhost:8080建立一个Web服务器</li>
+<li><code>webpack-dev-server --devtool eval</code> : 为你的代码创建源地址。当有任何报错的时候可以让你更加精确的定位到文件和行号</li>
+<li><code>webpack-dev-server --progress</code> : 显示合并代码进度</li>
+<li><code>webpack-dev-server --colors</code> : 命令行中显示颜色</li>
+<li><code>webpack-dev-server --content-base build</code> : webpack-dev-server服务会默认以当前目录伺服文件，如果设置了<code>content-base</code>，服务的根路径则为build目录</li>
+<li><code>webpack-dev-server --inline</code> : 可以自动加上<code>dev-server</code>的管理代码，实现热更新</li>
+<li><code>webpack-dev-server --hot</code> : 开启代码热替换，可以加上<code>HotModulesReplacementPlugin</code></li>
+<li><code>webpack-dev-server --port 3000</code> : 设置服务端口</li>
+</ul>
+<blockquote>
+<p>关于webpack-dev-server的简单介绍：webpack-dev-server是一个小型的node.js Express服务器,它使用webpack-dev-middleware中间件来为通过webpack打包生成的资源文件提供Web服务。它还有一个通过Socket.IO连接着webpack-dev-server服务器的小型运行时程序。webpack-dev-server发送关于编译状态的消息到客户端，客户端根据消息作出响应。</p>
+</blockquote>
+<p><strong>PS:使用webpack-dev-server起一个服务不在本地产生一个新文件；使用webpack编译会产生新文件</strong></p>
+<h4 id="3-多文件入口"><a href="#3-多文件入口" class="headerlink" title="3.多文件入口"></a>3.多文件入口</h4><pre><code>$ cd src &amp;&amp; touch entry1.js entry2.js
+
+/* webpack.config.js */
+var path = require(&apos;path&apos;);
+module.exports = {
+    entry: {
+        entry1: &apos;./src/entry1.js&apos;,
+        entry2: &apos;./src/entry2.js&apos;,
+    },
+    output: {
+        path: path.resolve(__dirname, &apos;build&apos;),
+        filename: &apos;[name].js&apos;
+    },
+};
+</code></pre><h4 id="4-使用Babel-loader来解析es6和jsx"><a href="#4-使用Babel-loader来解析es6和jsx" class="headerlink" title="4.使用Babel-loader来解析es6和jsx"></a>4.使用Babel-loader来解析es6和jsx</h4><p>先写一个最基本的组件代码，用于跑通开发环境</p>
+<pre><code>/* src/index.js */
+&apos;use strict&apos;;
+
+import React, { Component } from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+class HelloWorld extends Component {
+    render(){
+        return {
+            &lt;h1&gt;Hello World&lt;/h1&gt;
+        }
+    }
+}
+
+ReactDOM.render(&lt;HelloWorld /&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><p>代码用到了基本的<code>react.js</code>和<code>react-dom.js</code>，而且使用的是ES6的语法来封装组件和应用模块。</p>
+<p>下载相应的模块</p>
+<pre><code>$ npm install react react-dom --save
+</code></pre><p>下载并配置babel，以解析ES6语法和JSX语法</p>
+<pre><code>$ npm install babel-loader babel-core --save-dev
+</code></pre><p>安装后配置<code>webpack.config.js</code></p>
+<pre><code>var path = require(&apos;path&apos;);
+module.exports = {
+    entry: path.resolve(__dirname,&apos;src/index.js&apos;),
+    output: {
+        path: path.resolve(__dirname,&apos;build&apos;),
+        filename: &apos;bundle.js&apos;,
+    },
+    moudle: {
+        loaders:[{
+            test:/\.js$/,
+            loader:&apos;babel-loader&apos;
+            }]
+    }
+};
+</code></pre><p>指定了使用<code>babel-loader</code>来解析js文件。</p>
+<p>创建babel配置文件<code>.babelrc</code></p>
+<pre><code>$ touch .babelrc
+
+{
+    &quot;presets&quot;: [&quot;es2015&quot;,&quot;react&quot;,&quot;stage-0&quot;],
+    &quot;plugins&quot;: []
+}
+</code></pre><p>下载安装预设</p>
+<pre><code>$ npm insatll babel-preset-es2015 babel-preset-react babel-preset-stage-0
+//stage-0预设用来说明解析ES7其中一个阶段语法的转码规则
+</code></pre><p>设定<code>package.json</code>的<code>scripts</code></p>
+<pre><code>&quot;scripts&quot;:{
+    &quot;dev&quot; : &quot;./node_modules/.bin/webpack-dev-server --progress --colors --content-base build&quot;
+}
+</code></pre><p>运行</p>
+<pre><code>$ npm run dev
+</code></pre><p>在浏览器中访问<code>localhost:8080</code></p>
+<h4 id="5-devServer"><a href="#5-devServer" class="headerlink" title="5.devServer"></a>5.devServer</h4><p>webpack-dev-server 后面的一串参数可以用<code>devServer</code>字段统一在<code>webpack.config.js</code>文件里维护</p>
+<pre><code>/* webpack.config.js */
+var path = require(&apos;path&apos;);
+module.exports = {
+    entry: path.resolve(__dirname,&apos;src/index.js&apos;),
+    output: {
+        path: path.resolve(__dirname,&apos;build&apos;),
+        filename: &apos;bundle.js&apos;,
+    },
+    devServer: {
+        publicPath: &quot;/static/&quot;,
+        stats: {colors: true},
+        port: 8080,
+        contentBase: &apos;build&apos;,
+        inline: true
+    },
+    module: {
+        loaders:[{
+            test:/\.js,
+            loader:&apos;babel-loader&apos;
+            }]
+    }
+};
+</code></pre><p>这样，我们可以简化<code>scripts</code>字段的配置</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;./node_modules/.bin/webpack-dev-server&quot;
+}
+</code></pre><p>相应的修改index.html文件中的资源引用地址 </p>
+<pre><code>&lt;script src=&quot;/static/bundle.js&quot;&gt;&lt;/script&gt;
+</code></pre><p><code>npm run dev</code> 即可</p>
+<p>怎么mock(模拟)数据呢，可以用proxy(代理)的方式</p>
+<pre><code>var path = require(&apos;path&apos;);
+
+function rewriteUrl(replacePath) {
+  return function (req, opt) {
+    var queryIndex = req.url.indexOf(&apos;?&apos;);
+    var query = queryIndex &gt;= 0 ? req.url.substr(queryIndex) : &quot;&quot;;
+
+    req.url = req.path.replace(opt.path, replacePath) + query;
+    console.log(&quot;rewriting &quot;, req.originalUrl, req.url);
+  };
+}
+
+module.exports = {
+    entry: {
+      index: &quot;./src/index.js&quot;
+    },
+    output: {
+      publicPath: &quot;/static/&quot;,
+      path: path.resolve(__dirname, &quot;build&quot;),
+
+      filename: &quot;bundle.js&quot;
+    },
+    devServer: {
+      publicPath: &quot;/static/&quot;,
+      stats: { colors: true },
+      port: 8080,
+      contentBase: &apos;build&apos;,
+      inline: true,
+      proxy: [
+          {
+            path: /^\/api\/(.*)/,
+            target: &quot;http://localhost:8080/&quot;,
+            rewrite: rewriteUrl(&apos;/$1\.json&apos;),
+            changeOrigin: true
+          }
+      ]
+    },
+};
+</code></pre><h4 id="6-resolve"><a href="#6-resolve" class="headerlink" title="6.resolve"></a>6.resolve</h4><p>resolve下常用的是<code>extension</code>和<code>alias</code>字段的配置</p>
+<p>extension 不用在require或是import的时候加文件后缀</p>
+<pre><code>/* webpack.config.js */
+resolve: {
+    extensions: [&quot;&quot;,&quot;.js&quot;,&quot;.jsx&quot;,&quot;.css&quot;,&quot;.json&quot;],
+},
+
+/* src/component.js */
+export default () =&gt; {
+    alert(&apos;component&apos;);
+}
+
+/* src/index.js */
+&apos;use strict&apos;
+
+import React,{ Component } from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+import component from &apos;./component&apos;;
+
+component();
+
+class HelloWorld extends Component {
+  render(){
+    return (
+      &lt;h1&gt;Hello world&lt;/h1&gt;
+    )
+  }
+}
+
+ReactDOM.render(&lt;HelloWorld /&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><p>刷新看到运行效果。而此时import的时候没有写文件后缀</p>
+<p>alias 配置别名，加快webpack构建速度</p>
+<pre><code>var path = require(&apos;path&apos;);
+
+var pathToReact = path.join(__dirname,&quot;./node_modules/react/dist/react.js&quot;);
+var pathToReactDOM = path.join(__dirname,&quot;./node_modules/react-dom/dist/react-dom.js&quot;);
+
+module.exports = {
+    entry: path.resolve(__dirname, &apos;src/index.js&apos;),
+    output: {
+        path: path.resolve(__dirname, &apos;build&apos;),
+        filename: &apos;bundle.js&apos;,
+    },
+    devServer: {
+      publicPath: &quot;/static/&quot;,
+      stats: { colors: true },
+      port: 3000,
+      contentBase: &apos;build&apos;,
+      inline: true
+    },
+    resolve: {
+      extensions: [&quot;&quot;, &quot;.js&quot;, &quot;.jsx&quot;, &quot;.css&quot;, &quot;.json&quot;],
+      alias: {
+        &apos;react&apos;: pathToReact,
+        &apos;react-dom&apos;: pathToReactDOM
+      }
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loader: &apos;babel-loader&apos;
+        }
+      ],
+      noParse: [pathToReact, pathToReactDOM]
+    }
+};
+</code></pre><p>每当react在代码中被引入，它会使用压缩后的ReactJS，而不是早node_modules中找</p>
+<p>每当webpack尝试解析压缩后的文件，我们阻止它，因为这不必要。</p>
+<h4 id="7-解析样式文件"><a href="#7-解析样式文件" class="headerlink" title="7.解析样式文件"></a>7.解析样式文件</h4><p>使用less预处理器 </p>
+<p>先安装几个webpack的loader</p>
+<pre><code>$ npm install --save-dev style-loader css-loader less-loader
+</code></pre><p>配置<code>webpack.config.js</code></p>
+<pre><code>loaders: [
+    {
+        test: /\.js$/,
+        loaders: [&apos;react-hot&apos;, &apos;babel&apos;],
+        exclude: path.resolve(__dirname, &apos;node_modules&apos;)
+    },
+    {
+        test: /\.css/,
+        loader: &apos;style!css&apos;
+    },
+    {
+        test: /\.less/,
+        loader: &apos;style!css!less&apos;
+    }
+] 
+</code></pre><p>新增一个目录coponents并且在目录下新建一个Button组件</p>
+<pre><code>$ cd src &amp;&amp; mkdir components
+$ cd components &amp;&amp; mkdir Button
+$ cd Button &amp;&amp; touch Button.js Button.less
+
+/* src/components/Button.js */
+import React, { Component } from &apos;react&apos;;
+
+class Button extends Component {
+  handleClick(){
+    alert(&apos;戳我干嘛！&apos;);
+  }
+  render(){
+    const style = require(&apos;./Button.less&apos;);
+
+    return (
+      &lt;button className=&quot;my-button&quot; onClick={this.handleClick.bind(this)}&gt;
+        快戳我
+      &lt;/button&gt;
+    );
+  }
+}
+
+export default Button;
+
+/* src/components/Button.less */
+
+.my-button{
+    color: #fff;
+    background-color: #2db7f5;
+    border-color: #2db7f5;
+    padding: 4px 15px 5px 15px;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+/* src/index.js */
+&apos;use strict&apos;;
+import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import Button from &apos;./components/Button/Button&apos;;
+
+let root = document.getElementById(&apos;app&apos;);
+ReactDOM.render( &lt;Button /&gt;, root );
+</code></pre><p>跑一下</p>
+<pre><code>$ npm run dev
+</code></pre><p>修改一下less文件，浏览器会自动刷新</p>
+<h4 id="8-devtool"><a href="#8-devtool" class="headerlink" title="8.devtool"></a>8.devtool</h4><p>在配置中增加<code>devtool</code>字段，并设置值为source-map,这样我们就可以在浏览器中直接调试我们的源码，在控制台的sources下，点开可以看到<code>webpack://</code>目录。</p>
+<pre><code>/* webpack.config.js */
+devtool: &apos;cheap-module-source-map&apos;
+</code></pre><h4 id="9-图标字体等资源"><a href="#9-图标字体等资源" class="headerlink" title="9.图标字体等资源"></a>9.图标字体等资源</h4><p>图标字体的加载可以选择 file-loader 或 url-loader 进行加载。示例配置如下：</p>
+<pre><code>{
+    test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+    loader: &quot;url?limit=10000&quot;
+}
+</code></pre><p>先把配置跑通</p>
+<pre><code>$ npm install bootstrap --save
+</code></pre><p>在App.js里应用bootstrap。</p>
+<pre><code>/* src/container/App.js */
+import React, { Component } from &apos;react&apos;;
+import Button from &apos;../components/Button/Button&apos;;
+
+import &apos;bootstrap/dist/css/bootstrap.css&apos;;
+import &apos;./App.less&apos;;
+
+class App extends Component {
+  render(){
+    return (
+      &lt;div className=&quot;text-center&quot;&gt;
+        &lt;Button /&gt;
+        &lt;div className=&quot;tip&quot;&gt;&lt;/div&gt;
+        {/* 这里我们使用以下图标字体 */}
+        &lt;span className=&quot;glyphicon glyphicon-asterisk&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag">#React</a>
+          
+            <a href="/tags/Webpack/" rel="tag">#Webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/29/React学习笔记-React基础/" rel="next" title="React学习笔记-React基础">
+                <i class="fa fa-chevron-left"></i> React学习笔记-React基础
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/9473858.jpg"
+               alt="Guanyu Chen" />
+          <p class="site-author-name" itemprop="name">Guanyu Chen</p>
+          <p class="site-description motion-element" itemprop="description">百年歌自苦 未见有知音</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GuanyuChen" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3493100560/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-chen-88-5" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Webpack基础"><span class="nav-number">1.</span> <span class="nav-text">Webpack基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack的特别之处"><span class="nav-number">1.0.1.</span> <span class="nav-text">webpack的特别之处</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始化项目"><span class="nav-number">1.1.</span> <span class="nav-text">1.初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-webpack-和-webpack-dev-server-的基本命令"><span class="nav-number">1.2.</span> <span class="nav-text">2.webpack 和 webpack-dev-server 的基本命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-多文件入口"><span class="nav-number">1.3.</span> <span class="nav-text">3.多文件入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用Babel-loader来解析es6和jsx"><span class="nav-number">1.4.</span> <span class="nav-text">4.使用Babel-loader来解析es6和jsx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-devServer"><span class="nav-number">1.5.</span> <span class="nav-text">5.devServer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-resolve"><span class="nav-number">1.6.</span> <span class="nav-text">6.resolve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-解析样式文件"><span class="nav-number">1.7.</span> <span class="nav-text">7.解析样式文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-devtool"><span class="nav-number">1.8.</span> <span class="nav-text">8.devtool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-图标字体等资源"><span class="nav-number">1.9.</span> <span class="nav-text">9.图标字体等资源</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guanyu Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
