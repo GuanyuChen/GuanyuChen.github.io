@@ -118,7 +118,7 @@ React 中文文档读书笔记React 概览核心思想 : 封装组件，各个�
 JSX
 Virtual DOM
 Data Flow">
-<meta property="og:updated_time" content="2016-06-12T08:57:00.135Z">
+<meta property="og:updated_time" content="2016-06-12T08:57:55.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React中文文档">
 <meta name="twitter:description" content="[TOC]
@@ -460,6 +460,57 @@ React.render(myElement,document.body);
 <li>使用数组组装 <code>&lt;div&gt;{[&#39;cc&#39;,&lt;span&gt;&amp;copy;&lt;/span&gt;,&#39;2015&#39;]}&lt;/div&gt;</code></li>
 <li>直接插入原始的HTML</li>
 </ul>
+<h4 id="自定义HTML属性"><a href="#自定义HTML属性" class="headerlink" title="自定义HTML属性"></a>自定义HTML属性</h4><p>自定义属性要有<code>data-</code>前缀。</p>
+<p>可访问属性的前缀<code>aria-</code>也是支持的。</p>
+<h4 id="属性扩散-模式匹配"><a href="#属性扩散-模式匹配" class="headerlink" title="属性扩散(模式匹配)"></a>属性扩散(模式匹配)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var props = &#123;&#125;;</span><br><span class="line">props.foo = x;</span><br><span class="line">props.bar = y;</span><br><span class="line">var component = &lt;Component &#123;...pros&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>props</code>对象的属性会被设置成<code>Component</code>的属性。</p>
+<p>属性也可以被覆盖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var props = &#123;foo:&apos;default&apos;&#125;;</span><br><span class="line">var component = &lt;Component &#123;...props&#125; foo=&#123;&apos;override&apos;&#125;/&gt;;</span><br><span class="line">console.log(component.props.foo);//&apos;override&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="JSX与HTML的差异"><a href="#JSX与HTML的差异" class="headerlink" title="JSX与HTML的差异"></a>JSX与HTML的差异</h4><ul>
+<li><code>class</code>要写成<code>className</code></li>
+<li><code>style</code>属性接受CSS属性构成的JS对象</li>
+<li><code>onChange</code>事件表现更接近我们的直觉(不需要onBlur去触发)</li>
+<li>表单的表现差异也很大</li>
+</ul>
+<h3 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h3><p>一个React应用就是构建在React组件上的。</p>
+<p>组件有两个核心概念：</p>
+<ul>
+<li><p>props</p>
+</li>
+<li><p>state</p>
+</li>
+</ul>
+<p>一个组件就是通过这两个属性的值在<code>render</code>方法里面生成这个组件对应的HTML结构。</p>
+<p><em>PS : 组件生成的HTML结构只能有一个单一的根节点。</em></p>
+<ul>
+<li>props</li>
+</ul>
+<p><code>props</code>就是组件的属性，由外部通过JSX属性传入设置，一旦初始设置完成，就可以认为<code>this.props</code>是不可更改的，所以不要轻易更改<code>this.props</code>里面的值。</p>
+<ul>
+<li>state</li>
+</ul>
+<p><code>state</code>是组件的当前状态，可以把组件简单看成一个状态机，根据状态<code>state</code>呈现不同的UI展示。</p>
+<p>一旦状态(数据)更改，组件就会自动调用<code>render</code>重新渲染UI,这个更改的动作会通过<code>this.setState</code>方法来触发。</p>
+<ul>
+<li>划分状态数据<ul>
+<li>一条原则：让组件尽可能的少状态。这样组件逻辑就越容易维护。</li>
+<li>什么样的数据属性可以当做状态？<br>当更改这个状态(数据)需要更新组件UI的就可以认为是<code>state</code>，下面这些可以认为不是状态：<ul>
+<li>可计算的数据：比如一个数组的长度</li>
+<li>和props重复的数据：除非这个数据是要做变更的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h4><p>一个组件类必须调用<code>React.createClass</code>创建，并且提供一个<code>render</code>方法以及其他可选的生命周期函数、组件相关的事件或方法定义。</p>
+<ul>
+<li><code>getInitialState</code></li>
+</ul>
+<p>初始化<code>this.state</code>的值，只在组件装载之前调用一次。</p>
+<ul>
+<li><code>getDefaultProps</code></li>
+</ul>
+<p>只在组件创建时调用一次并缓存返回的对象(即在<code>React.createClass</code>之后就会调用)。</p>
 
       
     </div>
@@ -639,7 +690,7 @@ React.render(myElement,document.body);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-中文文档读书笔记"><span class="nav-number">1.</span> <span class="nav-text">React 中文文档读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-概览"><span class="nav-number">1.1.</span> <span class="nav-text">React 概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发环境配置"><span class="nav-number">1.2.</span> <span class="nav-text">开发环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前端工程化是一个很重要的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">前端工程化是一个很重要的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack配置React开发环境"><span class="nav-number">1.2.2.</span> <span class="nav-text">Webpack配置React开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX"><span class="nav-number">1.3.</span> <span class="nav-text">JSX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用JSX"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用JSX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用JavaScript表达式"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用JavaScript表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">1.3.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML转义"><span class="nav-number">1.3.4.</span> <span class="nav-text">HTML转义</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-中文文档读书笔记"><span class="nav-number">1.</span> <span class="nav-text">React 中文文档读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-概览"><span class="nav-number">1.1.</span> <span class="nav-text">React 概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发环境配置"><span class="nav-number">1.2.</span> <span class="nav-text">开发环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前端工程化是一个很重要的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">前端工程化是一个很重要的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack配置React开发环境"><span class="nav-number">1.2.2.</span> <span class="nav-text">Webpack配置React开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX"><span class="nav-number">1.3.</span> <span class="nav-text">JSX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用JSX"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用JSX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用JavaScript表达式"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用JavaScript表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">1.3.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML转义"><span class="nav-number">1.3.4.</span> <span class="nav-text">HTML转义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义HTML属性"><span class="nav-number">1.3.5.</span> <span class="nav-text">自定义HTML属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性扩散-模式匹配"><span class="nav-number">1.3.6.</span> <span class="nav-text">属性扩散(模式匹配)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSX与HTML的差异"><span class="nav-number">1.3.7.</span> <span class="nav-text">JSX与HTML的差异</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React组件"><span class="nav-number">1.4.</span> <span class="nav-text">React组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件生命周期"><span class="nav-number">1.4.1.</span> <span class="nav-text">组件生命周期</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
