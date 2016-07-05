@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,CSS,work," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+前端面试总结经历了春招的陆续几轮失败，笔者大受打击，同时笔者也渐渐的总结出一些失败的原因以及经验。刚好最近忙完期末考试，笔者决定利用这个空档总结一下历次面试出现的问题以及需要掌握的知识。
+主要分一下几个方面：
+
+CSS基础，JavaScript基础
+CSS3新特性，HTML5新API等
+ajax相关：原生和jQuery写法
+http协议：get与post区别
+浏览器存储：cookie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试总结">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/前端面试总结/index.html">
+<meta property="og:site_name" content="Guanyu">
+<meta property="og:description" content="[TOC]
+前端面试总结经历了春招的陆续几轮失败，笔者大受打击，同时笔者也渐渐的总结出一些失败的原因以及经验。刚好最近忙完期末考试，笔者决定利用这个空档总结一下历次面试出现的问题以及需要掌握的知识。
+主要分一下几个方面：
+
+CSS基础，JavaScript基础
+CSS3新特性，HTML5新API等
+ajax相关：原生和jQuery写法
+http协议：get与post区别
+浏览器存储：cookie">
+<meta property="og:updated_time" content="2016-07-05T20:22:58.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试总结">
+<meta name="twitter:description" content="[TOC]
+前端面试总结经历了春招的陆续几轮失败，笔者大受打击，同时笔者也渐渐的总结出一些失败的原因以及经验。刚好最近忙完期末考试，笔者决定利用这个空档总结一下历次面试出现的问题以及需要掌握的知识。
+主要分一下几个方面：
+
+CSS基础，JavaScript基础
+CSS3新特性，HTML5新API等
+ajax相关：原生和jQuery写法
+http协议：get与post区别
+浏览器存储：cookie">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 前端面试总结 | Guanyu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Guanyu</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">有关开发与人生</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '-zURDfE9QHufm-semmRx','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端面试总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T20:50:18+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+
+          // 插入位置
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h1 id="前端面试总结"><a href="#前端面试总结" class="headerlink" title="前端面试总结"></a>前端面试总结</h1><p>经历了春招的陆续几轮失败，笔者大受打击，同时笔者也渐渐的总结出一些失败的原因以及经验。刚好最近忙完期末考试，笔者决定利用这个空档总结一下历次面试出现的问题以及需要掌握的知识。</p>
+<p>主要分一下几个方面：</p>
+<ul>
+<li>CSS基础，JavaScript基础</li>
+<li>CSS3新特性，HTML5新API等</li>
+<li>ajax相关：原生和jQuery写法</li>
+<li>http协议：get与post区别</li>
+<li>浏览器存储：cookie session</li>
+<li>常用布局</li>
+<li>简单的bootstrap知识<br>…</li>
+</ul>
+<p>下面是每一部分的详细内容</p>
+<a id="more"></a>
+<h2 id="CSS基础及常用CSS3新特性"><a href="#CSS基础及常用CSS3新特性" class="headerlink" title="CSS基础及常用CSS3新特性"></a>CSS基础及常用CSS3新特性</h2><p>这部分知识可以看我以前的一篇笔记 <a href="http://guanyuchen.com/2016/05/28/%E5%9F%BA%E7%A1%80CSS%E6%80%BB%E7%BB%93/" title="基础CSS总结" target="_blank" rel="external">戳这里</a></p>
+<h2 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础"></a>JavaScript基础</h2><p>现在能想起来的需要记住的JavaScript基础特性主要有以下几种：</p>
+<h3 id="变量提升与作用域"><a href="#变量提升与作用域" class="headerlink" title="变量提升与作用域"></a>变量提升与作用域</h3><p>众所周知，在推出ES6之后，JavaScript声明变量的方式一共有三种：<code>let</code>,<code>const</code>,<code>var</code>。其中<code>let</code>和<code>const</code>关键字是ES6的新特性，分别声明了局部变量和常量。此时我们应该知道，<code>let</code>和<code>const</code>声明的变量不存在变量提升，而由<code>var</code>声明的变量存在变量提升。</p>
+<p>变量提升的意思是：JavaScript代码运行时，会把变量和函数的声明提到作用域的顶端。</p>
+<p>PS：变量提升只是把声明提前，而不会把赋值也提升上来</p>
+<p>ES6引入块级作用域的概念，<code>let</code>关键字声明的变量作用域限定在块级(大括号内部)，只有在所定义的块级作用域内部才能访问。</p>
+<p>而在ES5中，JavaScript是用 <strong>自执行的匿名函数</strong> 来实现块级作用域的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">  // 这里为块级作用域</span><br><span class="line">  &#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>下面进行总结：</p>
+<ul>
+<li>var声明的变量存在变量提升，没有块级作用域，作用域一般由函数来划分</li>
+<li>let、const声明的变量不存在变量提升，作用域被限定到块级(大括号内)</li>
+<li>存在变量提升的变量可以先使用，再声明，不会报错，因为变量已经存在作用域的顶部(但如果在赋值之间使用会报undefined)</li>
+<li>let不能重复声明，会报错</li>
+<li>使用函数表达式定义的函数会函数声明连带函数体提升到方法体最顶部</li>
+</ul>
+<blockquote>
+<p>如果变量在函数体内声明，它的作用域是 <strong>函数作用域</strong> 。否则，它就是 <strong>全局作用域</strong> 。变量将会在执行进入作用域时被创建。块不会定义新的作用域，只有函数声明和程序才可以。变量在创建的时候会被初始化为undefined。如果变量声明语句带有赋值操作，则赋值操作只有在被执行的时候才会发生，而不是创建的时候。</p>
+</blockquote>
+<h3 id="闭包和作用域链"><a href="#闭包和作用域链" class="headerlink" title="闭包和作用域链"></a>闭包和作用域链</h3><h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>当某个函数第一次被调用时会创建一个执行环境（EC）以及相应的作用域链，作用域链是由最里层向最外层延伸的。意思就是说：在函数内部可以调用外部的变量，而在外部不能调用函数内部的变量。作用域的终点是全局执行环境。</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包是指有权访问另一个函数作用域中变量的函数。创建闭包的常见方式就是在一个函数内部创建另外一个函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//最简单的闭包</span><br><span class="line">function a()&#123;</span><br><span class="line">    var x = 1;</span><br><span class="line">    return function b()&#123;</span><br><span class="line">        return x+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于闭包，还有一个常见问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function A(x)&#123;</span><br><span class="line">    for( var i =0;i&lt;x.length;i++ )&#123;</span><br><span class="line">        as[i].onclick = function()&#123;</span><br><span class="line">            alert( i );</span><br><span class="line">        &#125;</span><br><span class="line">        // alert( i );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//上面这段代码就会因为闭包的缘故而一直弹出x.length而不是1,2,3。。。</span><br></pre></td></tr></table></figure>
+<p>解决的方法也是再次利用闭包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function A(x)&#123;</span><br><span class="line">    for( var i =0;i&lt;x.length;i++ )&#123;</span><br><span class="line">       as[i].onclick = (function(a)&#123; // 称为匿名X</span><br><span class="line">            // 相当于 var a=a; </span><br><span class="line">            return function()&#123; // 称为匿名Y</span><br><span class="line">                alert( a );</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i));</span><br><span class="line">        // 利用了匿名函数，并将每次的i传入匿名函数中，再利用闭包，使最后能弹出1,2,3。。。</span><br><span class="line">        // alert( i );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h4><p>this对象是在运行时基于函数的执行环境绑定的（匿名函数中具有全局性）</p>
+<p>因为每个函数被调用的时候其活动对象都会自动获取2个特殊的变量：this和arguments。内部函数搜索这两个变量只会在其活动对象内搜索为止，永远不可能直接访问外部函数中的这两个变量。当然可以使用闭包，将外部的this值保存在一个内部可以访问的变量中即可。</p>
+<p>全局上下文中的this指向window对象，匿名函数中的this也指向window</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>JavaScript中所有对象都有原型。当对象收到一个消息时(属性查找或方法调用)，JS先尝试在自身属性查找，如果查不到就会将消息传给对象的原型并以此类推。</p>
+<p>PS：ES5中用原型链来实现继承 ES6新增class关键字实现继承</p>
+<p>ES6也为原型新增了一个<code>_proto_</code>属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    kind:1</span><br><span class="line">&#125;</span><br><span class="line">var b = &#123;</span><br><span class="line">    type:1</span><br><span class="line">&#125;</span><br><span class="line">b._proto_ = a ;// 设置a为b的原型，b继承a的所有属性</span><br></pre></td></tr></table></figure>
+<p>A.isPrototypeOf(B) // A是否为B的原型 返回true或false</p>
+<p>ES5使用<code>Object.create()</code>构造原型</p>
+<pre><code>var b = Object.create(a);   // 构造一个以a为原型的对象
+var b = Object.create(a,{age:{value:13}});  //构造一个以a为原型的有自己独特的属性的对象
+</code></pre><p>Object.getPrototypeOf();    // 获取对象的原型</p>
+<p><strong>构造函数是创建原型链最常用的方法</strong></p>
+<p>每个构造函数都有一个特殊属性<code>Prototype</code> 指向函数的原型</p>
+<p>原型链的真正形成靠的是<code>_proto_</code>，每个对象的<em>proto</em>属性指向它的创建对象的prototype</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 原型对象的结构</span><br><span class="line">Function.prototype = &#123;</span><br><span class="line">    constructor : Function,</span><br><span class="line">    __proto__ : parent prototype,</span><br><span class="line">    some prototype properties: ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code>A.prototype = new B();  // 最简单的继承
+</code></pre><p>PS：为函数的prototype属性增加属性时，不要使用对象字面量的方式，这样会切断原型链。可以用<code>A.prototype.x = 1;</code>来赋值。</p>
+<h2 id="ajax相关"><a href="#ajax相关" class="headerlink" title="ajax相关"></a>ajax相关</h2><h3 id="原生JS实现"><a href="#原生JS实现" class="headerlink" title="原生JS实现"></a>原生JS实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 1. 创建一个XMLHttpRequest对象</span><br><span class="line">var XHR = new XMLHttpRequest() | new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);    // 后者适配ie5,ie6</span><br><span class="line"></span><br><span class="line">// 2. 发送请求</span><br><span class="line">XHR.open(method, url, async)    // method:请求的类型GET/POST</span><br><span class="line">                                // URL:文件在服务器上的位置</span><br><span class="line">                                // async:是否异步 true异步 false同步</span><br><span class="line">XHR.send(string)                //将请求发送到服务器，仅适用于POST</span><br><span class="line">                                  如果是GET方式，里面无参</span><br></pre></td></tr></table></figure>
+<p>GET与POST区别：</p>
+<ul>
+<li>GET比POST更快</li>
+<li>GET把请求信息缀到URL后面，相同的URL会有相同的返回(防止GET的等幂访问可以在URL后面缀上一个独一无二的id)</li>
+<li>GET可传送简单数据，大小在1kb左右；数据追加到url后面，所以GET传送的数据按照url参数的方式附加在请求行中的资源路径后面</li>
+<li>GET会被浏览器缓存，存在安全问题</li>
+<li>POST默认每次提交都是不同的</li>
+<li>POST把数据作为HTTP消息的实体内容发送给服务器</li>
+<li>POST传递数据量大</li>
+</ul>
+<p>总之，GET效率高，数据量小，安全性低，会被缓存，POST反之。</p>
+<p>PS : GET请求传递的参数一定要先<code>encodeURIComponent</code>编码；从URL截取下来的信息要<code>decodeURIComponent</code>解码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XHR.open(&quot;POST&quot;,&quot;ajax_test.asp&quot;,true);</span><br><span class="line">XHR.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);// 设置请求头，让服务器知道实体中有参数变量</span><br><span class="line">XHR.send(&quot;fname=Bill&amp;lname=Gates&quot;);</span><br></pre></td></tr></table></figure>
+<p>当异步时，还需要有一个<code>onreadystatechange</code>函数，写在<code>open</code>的前面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XHR.onreadystatechange = function()&#123;</span><br><span class="line">    if (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;// 响应已就绪</span><br><span class="line">        document.getElementById(&quot;myDiv&quot;).innerHTML=XHR.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>readyState</p>
+<p>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</p>
+<h3 id="jQuery实现"><a href="#jQuery实现" class="headerlink" title="jQuery实现"></a>jQuery实现</h3><h4 id="get"><a href="#get" class="headerlink" title="$.get()"></a>$.get()</h4><pre><code>$.get(url,[data],[func])
+</code></pre><ul>
+<li>url为请求地址，data为请求数据的列表，callback为请求成功后的回调函数</li>
+<li>该函数接受两个参数，第一个为服务器返回的数据，第二个参数为服务器的状态，是可选参数。</li>
+<li>服务器返回的数据是字符串形式。</li>
+</ul>
+<h4 id="post"><a href="#post" class="headerlink" title="$.post()"></a>$.post()</h4><pre><code>$.post(url,[data],[func],[type])
+</code></pre><p>type是向服务器请求的数据的类型，可以是html，xml，json等；如果不设置，则与$.get()一样，返回字符串</p>
+<h4 id="ajax"><a href="#ajax" class="headerlink" title="$.ajax()"></a>$.ajax()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;    //函数传入一个options</span><br><span class="line">    url:&apos;&apos;,</span><br><span class="line">    timeout:100, //设置超时时间，覆盖全局设置</span><br><span class="line">    data:&#123;&#125;,</span><br><span class="line">    async:true, //同步异步，默认异步</span><br><span class="line">    type:&apos;POST&apos;,</span><br><span class="line">    dataType:&apos;json&apos;,</span><br><span class="line">    beforeSend:function(XMLHttpRequest)&#123;&#125;, //在发送之前可修改XMLHttpRequest的函数</span><br><span class="line">    success:function()&#123;&#125;,</span><br><span class="line">    error:function()&#123;&#125;,</span><br><span class="line">    cache:false,    // 不从浏览器缓存中加载信息</span><br><span class="line">    global:false,   //是否触发全局ajax事件</span><br><span class="line">    complete：function()&#123;&#125;   //无论成功失败 只要请求完成就调用</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="getScript"><a href="#getScript" class="headerlink" title="$.getScript()"></a>$.getScript()</h4><p>动态载入脚本文件</p>
+<pre><code>$.getScript(url,func); //可以跨域！
+</code></pre><h4 id="getJson"><a href="#getJson" class="headerlink" title="$.getJson()"></a>$.getJson()</h4><pre><code>$.getJson(url,[data],[func]); //也可以跨域！
+</code></pre><h4 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h4><pre><code>$.ajaxStart() 全局事件
+$.beforeSend() 局部事件
+$.ajaxSend() 全局事件 在ajax请求之前触发
+。。。
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/work/" rel="tag">#work</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/12/React中文文档/" rel="next" title="React中文文档">
+                <i class="fa fa-chevron-left"></i> React中文文档
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/9473858.jpg"
+               alt="Guanyu Chen" />
+          <p class="site-author-name" itemprop="name">Guanyu Chen</p>
+          <p class="site-description motion-element" itemprop="description">百年歌自苦 未见有知音</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GuanyuChen" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3493100560/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-chen-88-5" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端面试总结"><span class="nav-number">1.</span> <span class="nav-text">前端面试总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS基础及常用CSS3新特性"><span class="nav-number">1.1.</span> <span class="nav-text">CSS基础及常用CSS3新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript基础"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升与作用域"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量提升与作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包和作用域链"><span class="nav-number">1.2.2.</span> <span class="nav-text">闭包和作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域链"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this对象"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">this对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">1.2.3.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax相关"><span class="nav-number">1.3.</span> <span class="nav-text">ajax相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原生JS实现"><span class="nav-number">1.3.1.</span> <span class="nav-text">原生JS实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery实现"><span class="nav-number">1.3.2.</span> <span class="nav-text">jQuery实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">$.get()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">$.post()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajax"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">$.ajax()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getScript"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">$.getScript()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getJson"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">$.getJson()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#汇总"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">汇总</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guanyu Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
