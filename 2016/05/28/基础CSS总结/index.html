@@ -108,7 +108,7 @@
 常用基础样式：">
 <meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/csszongjie.png">
 <meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/ct_boxmodel.gif">
-<meta property="og:updated_time" content="2016-06-14T07:01:25.530Z">
+<meta property="og:updated_time" content="2016-07-14T03:02:28.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础CSS总结">
 <meta name="twitter:description" content="[TOC]
@@ -405,9 +405,9 @@
 <li><p>position:<br>  CSS有三种基本的定位机制：文档流，浮动，定位<br>  文档流就是按照元素在文档中的顺序进行排列，块级元素从上到下排列，元素与元素之间的 <strong>垂直距离由垂直外边距计算出来</strong> 。行内元素在行中水平排列，可以使用 <strong>水平内边距，边框和外边距</strong> 调整它们的间距。但垂直内边距，边框和外边距 <strong>不影响</strong> 行内框的高度。<br>  <strong>行框的高度总是足以容纳它包含的所有行内框。</strong> 不过可以通过定义 <strong>行高(line-height)</strong> 来改变行框的高度。</p>
 <ul>
 <li>static : 默认值，没有定位。元素出现在正常的文档流中(忽略’top’,’right’,’bottom’,’left’,’z-index’属性 )</li>
-<li>relative : 生成相对定位，相对于原来的位置进行定位。<strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong> </li>
-<li>absolute : 元素从文档流中删除，生成绝对定位的元素。相对于 <strong>非static第一个父元素</strong>定位。 <strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong> </li>
-<li>fixed : 生成绝对定位，相对于浏览器窗口进行定位。<strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong> </li>
+<li>relative : 生成相对定位，相对于原来的位置进行定位。<strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong></li>
+<li>absolute : 元素从文档流中删除，生成绝对定位的元素。相对于 <strong>非static第一个父元素</strong>定位。 <strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong></li>
+<li>fixed : 生成绝对定位，相对于浏览器窗口进行定位。<strong>元素的位置通过’top’,’right’,’bottom’,’left’属性进行定位</strong></li>
 <li>inherit : 规定从父元素继承position属性</li>
 </ul>
 </li>
@@ -447,7 +447,7 @@
 <li>border: 边框 (有三个方面，宽度，样式，颜色)<ul>
 <li>border-style (样式)<ul>
 <li>none 无边框</li>
-<li>hidden </li>
+<li>hidden</li>
 <li>dotted 点状边框。大多数浏览器中呈现实线</li>
 <li>dashed 虚线。大多数浏览器中呈现实线</li>
 <li>solid 实线</li>
@@ -477,9 +477,9 @@
 </li>
 <li>颜色、背景<ul>
 <li>color : 字体颜色</li>
-<li>background: <ul>
-<li>-color: 默认值 transparent 透明 可以为所有元素设置背景色，包括 <strong>行内元素</strong> </li>
-<li>-image: <ul>
+<li>background:<ul>
+<li>-color: 默认值 transparent 透明 可以为所有元素设置背景色，包括 <strong>行内元素</strong></li>
+<li>-image:<ul>
 <li>url(‘URL’) 指向图像的路径</li>
 <li>none 默认值 不显示背景图像</li>
 <li>inherit 从父元素继承</li>
@@ -493,7 +493,7 @@
 <li>inherit 从父元素继承</li>
 </ul>
 </li>
-<li>-position: <strong>设置背景图像的起始位置</strong> <ul>
+<li>-position: <strong>设置背景图像的起始位置</strong><ul>
 <li>方位值 : 两个参数 表示水平方向的方位(left center bottom) 表示垂直方向的方位(top center bottom) <strong>当仅设置一个值时，第二个值默认为center</strong></li>
 <li>x% y% : 第一个值是水平位置 第二个值是垂直位置 左上角是0% 0% 右下角是100% 100% 如果仅规定一个值，第二个值是50%</li>
 <li>像素值 像素值 : 第一个值是水平位置 第二个值是垂直位置 可以与百分比混用。</li>
@@ -544,7 +544,7 @@
 </ul>
 </li>
 <li>-size : 文本的大小<ul>
-<li>绝对值 <ul>
+<li>绝对值<ul>
 <li>将文本设置为指定的大小</li>
 <li>不允许用户在所有浏览器中改变文本大小</li>
 <li>绝对大小在输出的物理尺寸确定时和有用</li>
@@ -588,21 +588,21 @@
 </ul>
 </li>
 <li>line-height : 行高<ul>
-<li>normal </li>
+<li>normal</li>
 <li><em>number</em> 数字会与当前字体尺寸相乘来计算行高</li>
 <li>length 设置固定的行间距</li>
 <li>%</li>
 <li>inherit</li>
 </ul>
 </li>
-<li>vertical-align: 设置元素的垂直对齐方式<br>  定义行内元素的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度值和百分比值。这会使元素 <strong>降低而不是升高</strong> <ul>
+<li>vertical-align: 设置元素的垂直对齐方式<br>  定义行内元素的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度值和百分比值。这会使元素 <strong>降低而不是升高</strong><ul>
 <li>baseline : 默认值，元素放置在父元素的基线上。</li>
 <li>sub : 垂直对齐文本的下标</li>
 <li>super : 垂直对齐文本的上标</li>
 <li>top : 把元素顶端与行中最高元素的顶端对齐</li>
 <li>text-top : 把元素的顶端与父元素字体的顶端对齐</li>
 <li>middle : 把此元素放在父元素中部</li>
-<li>bottom : 把此元素顶端与行内最低元素的顶端对齐 </li>
+<li>bottom : 把此元素顶端与行内最低元素的顶端对齐</li>
 <li>text-bottom : 把元素底端与父元素字体的底端对齐</li>
 <li>inherit : 从父元素继承visible-align属性值</li>
 </ul>
@@ -637,7 +637,7 @@
 </ul>
 </li>
 <li>white-space : 如何处理元素中的空白<ul>
-<li>normal </li>
+<li>normal</li>
 <li>pre 空白被浏览器保留，类似于HTML中的 &lt; pre &gt; 标签</li>
 <li>nowrap 文本不换行</li>
 <li>pre-wrap 保留空白符序列，但正常的换行</li>
@@ -661,7 +661,7 @@
 </ul>
 <h5 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h5><p>导航栏基本上是一个链接列表，所以用&lt; ul &gt;和&lt; li &gt;非常合适</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ul&#123; /*去掉圆点和边距*/</span><br><span class="line">    list-type-style : none;</span><br><span class="line">    margin : 0;</span><br><span class="line">    padding : 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>水平导航栏 </p>
+<p>水平导航栏</p>
 <pre><code>li { float : left; } /*对列表项进行浮动*/
 </code></pre><h5 id="图片透明"><a href="#图片透明" class="headerlink" title="图片透明"></a>图片透明</h5><p>IE9、Firefox、Chrome、Opera和Safari使用属性 <code>opacity</code> 来透明度，从0.0到1.0</p>
 <h4 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h4><h5 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h5><ul>
@@ -736,7 +736,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@font-face</span><br><span class="line">&#123;</span><br><span class="line">font-family: myFirstFont;   /*粗体字体名字跟上面正常的一样*/</span><br><span class="line">src: url(&apos;Sansation_Bold.ttf&apos;), /*另一个字体文件，包含了上面字体的粗体字符*/</span><br><span class="line">     url(&apos;Sansation_Bold.eot&apos;); /* IE9+ */</span><br><span class="line">font-weight:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h5><h6 id="2D转换"><a href="#2D转换" class="headerlink" title="2D转换"></a>2D转换</h6><p>Internet Explorer 10、Firefox 以及 Opera 支持 transform 属性。</p>
 <ul>
-<li>Chrome 和 Safari 需要前缀 -webkit- </li>
+<li>Chrome 和 Safari 需要前缀 -webkit-</li>
 <li>IE9 需要 -ms-</li>
 <li>Opera 需要 -o-</li>
 <li>FireFox 需要 -mox-</li>
@@ -767,15 +767,15 @@
 <li>rotateX(xdeg)         //围绕x轴以给定的度数进行旋转</li>
 <li>rotateY(ydeg)         //围绕y轴以给定的度数进行旋转</li>
 </ul>
-<p><strong>transform-origin(20%,40%)</strong> </p>
+<p><strong>transform-origin(20%,40%)</strong></p>
 <ul>
 <li>设置旋转元素的基点位置,x轴，y轴(如果是3D转换，再加一个z轴方向的值)</li>
 <li>必须与tarnsform元素一起使用</li>
 <li>IE9 -ms- 仅适用于2D转换</li>
 <li>chrome/safari -webkit-</li>
-<li>opera只支持2D转换 </li>
+<li>opera只支持2D转换</li>
 </ul>
-<p><strong>transform-style</strong> </p>
+<p><strong>transform-style</strong></p>
 <ul>
 <li>如何在3D空间内呈现被嵌套的元素</li>
 <li>flat 子元素不保留其3D位置</li>
@@ -852,12 +852,12 @@
 <li>Firefox 需要前缀 -moz-。</li>
 <li><p>Chrome 和 Safari 需要前缀 -webkit-。</p>
 </li>
-<li><p>column-count 元素应该被分割的列数 </p>
+<li><p>column-count 元素应该被分割的列数</p>
 </li>
 <li>column-gap 列与列之间的间隔</li>
 <li>column-rule 规定列之间的宽度、样式和颜色规则<ul>
 <li>column-rule-style 样式规则<ul>
-<li>none </li>
+<li>none</li>
 <li>hidden</li>
 <li>dotted 点状</li>
 <li>dashed 虚线</li>
@@ -876,7 +876,7 @@
 <li>columhs 简写属性 列的宽度 和 列数</li>
 </ul>
 <h5 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h5><ul>
-<li>appearance <ul>
+<li>appearance<ul>
 <li>所有主流浏览器都不支持 appearance 属性。</li>
 <li>Firefox 支持替代的 -moz-appearance 属性。</li>
 <li>Safari 和 Chrome 支持替代的 -webkit-appearance 属性。</li>
@@ -888,7 +888,7 @@
 <li>field 呈现为输入字段</li>
 </ul>
 </li>
-<li>box-sizing <ul>
+<li>box-sizing<ul>
 <li>content-box width与height只影响content 不涉及border和padding</li>
 <li>border-box width与height影响边框盒，即border+padding+content</li>
 <li>inherit</li>
@@ -1024,7 +1024,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1032,7 +1032,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1041,7 +1041,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

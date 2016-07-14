@@ -295,6 +295,159 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/14/atom常用插件及操作/" itemprop="url">
+                  atom常用插件及操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T10:01:34+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+
+          // 插入位置
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1 id="atom学习路线"><a href="#atom学习路线" class="headerlink" title="atom学习路线"></a>atom学习路线</h1><p>笔者作为sublime的资深用户，对于atom早期发布的几个版本并没有多大兴趣。早期的atom没有表现出来多么优秀的特性，而且经常会出现卡顿的情况。所以，一部分开发者对它还是持观望态度的。</p>
+<p>不过，在2016年一年，atom的发展速度是无与伦比的。首先，它作为一个开源项目就比sublime有很大的优势。其次，atom已经发展起来了一个成形的社区做为支柱。并且，在笔者最近学习的React整个路线的开发过程中，atom的插件体系是比sublime完整的。所以，笔者决定将开发工作逐渐迁移到atom上来。</p>
+<p>这篇博客用来记录atom插件和快捷键的学习过程</p>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><p>atom插件安装正常情况下是非常方便的，在<code>File</code>-&gt;<code>Setting</code>-&gt;<code>Install</code>就可以搜索插件并安装。</p>
+<p>但当网络不能翻墙时，安装就会出错。这个时候我们可以选择本地安装。本地安装步骤如下：</p>
+<ol>
+<li><code>cd ~/.atom/packages</code></li>
+<li><code>git clone 库的URL</code></li>
+<li><code>cd 库的路径</code></li>
+<li><code>npm install</code></li>
+</ol>
+<h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><p>Emmet主要目的就是加快前端开发速度，包括代码片段和简写展开。</p>
+<p>PS: 简写语法用Tab调用</p>
+<h4 id="Emmet特性"><a href="#Emmet特性" class="headerlink" title="Emmet特性"></a>Emmet特性</h4><ul>
+<li>简写支持嵌套</li>
+<li>简写支持分组</li>
+<li>简写支持乘法</li>
+<li>简写支持自增、自减、起序、编号</li>
+</ul>
+<h4 id="Emmet语法"><a href="#Emmet语法" class="headerlink" title="Emmet语法"></a>Emmet语法</h4><h5 id="文档初始化"><a href="#文档初始化" class="headerlink" title="文档初始化"></a>文档初始化</h5><ul>
+<li>html:5 或 ! (用于HTML5文档类型)</li>
+<li>html:xt (用于XHTML过渡文档类型)</li>
+<li>html:4s (用于HTML4严格文档类型)</li>
+</ul>
+<h5 id="代码简写"><a href="#代码简写" class="headerlink" title="代码简写"></a>代码简写</h5><ul>
+<li><p># id | . class | [] 属性 | {} 内容</p>
+<p>PS:若是不带父元素，默认为是隐形生成(就近原则)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--简写形式写在注释里--&gt;</span><br><span class="line">&lt;!--#test.test--&gt;</span><br><span class="line">&lt;div id=&quot;test&quot; class=&quot;test&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--p#test.test--&gt;</span><br><span class="line">&lt;p id=&quot;test&quot; class=&quot;test&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;!--a#test[href=&quot;guanyuchen.com&quot;]&#123;这里是文本内容&#125;--&gt;</span><br><span class="line">&lt;a id=&quot;test&quot; href=&quot;guanyuchen.com&quot;&gt;这里是文本内容&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><blockquote>
+<p>后代 | + 兄弟 | ^ 上级</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--div&gt;ul&gt;li--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--div&gt;p+p--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;p&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--div&gt;p&gt;ul&gt;li^span+b--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;P&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li&gt;&lt;/li&gt;</span><br><span class="line">      &lt;span&gt;&lt;/span&gt;</span><br><span class="line">      &lt;b&gt;&lt;/b&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/P&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>() 分组 | $ 自增 | $@- 自减 | $@数字 起序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--div&gt;ul&gt;(li&gt;a)*2--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--div&gt;ul&lt;(li&gt;a&#123;文本$$&#125;)*2--&gt;</span><br><span class="line">&lt;!--$是匹配数字，一个代表从1开始，两个代表从01开始，三个001，以此类推--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容01&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容02&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--div&gt;ul&gt;(li&gt;a&#123;文本内容$@-&#125;)*3--&gt;</span><br><span class="line">&lt;!--@-代表启用自减 降序排列--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--div&gt;ul&gt;(li&gt;a&#123;文本内容$@2&#125;)*5--&gt;</span><br><span class="line">&lt;!--$@number代表自增的数字从几开始--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容4&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容5&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;&quot;&gt;文本内容6&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/05/前端面试总结/" itemprop="url">
                   前端面试总结
                 </a>
@@ -1407,125 +1560,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/28/基础CSS总结/" itemprop="url">
-                  基础CSS总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-28T10:38:00+08:00" content="2016-05-28">
-              2016-05-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-
-          // 插入位置
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>[TOC]</p>
-<h2 id="基础知识总结"><a href="#基础知识总结" class="headerlink" title="基础知识总结"></a>基础知识总结</h2><h3 id="CSS总结"><a href="#CSS总结" class="headerlink" title="CSS总结"></a>CSS总结</h3><h4 id="基础CSS"><a href="#基础CSS" class="headerlink" title="基础CSS"></a>基础CSS</h4><p>CSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。</p>
-<p>常用基础样式：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/28/基础CSS总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1571,7 +1605,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1579,7 +1613,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1588,7 +1622,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
