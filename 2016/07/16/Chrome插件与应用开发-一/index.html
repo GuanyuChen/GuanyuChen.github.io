@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Chrome," />
 
 
 
@@ -96,15 +96,28 @@
 
 
 
-<meta name="description" content="百年歌自苦 未见有知音">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Guanyu">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="[TOC]
+Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
+扩展Chrome扩展是一系列文件的集合，包括：
+
+HTML文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome插件与应用开发(一)">
+<meta property="og:url" content="http://yoursite.com/2016/07/16/Chrome插件与应用开发-一/index.html">
 <meta property="og:site_name" content="Guanyu">
-<meta property="og:description" content="百年歌自苦 未见有知音">
+<meta property="og:description" content="[TOC]
+Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
+扩展Chrome扩展是一系列文件的集合，包括：
+
+HTML文件">
+<meta property="og:updated_time" content="2016-07-16T08:59:28.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guanyu">
-<meta name="twitter:description" content="百年歌自苦 未见有知音">
+<meta name="twitter:title" content="Chrome插件与应用开发(一)">
+<meta name="twitter:description" content="[TOC]
+Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
+扩展Chrome扩展是一系列文件的集合，包括：
+
+HTML文件">
 
 
 
@@ -122,7 +135,7 @@
   };
 </script>
 
-  <title> Guanyu </title>
+  <title> Chrome插件与应用开发(一) | Guanyu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,9 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -294,10 +305,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/28/静态博客搭建指南/" itemprop="url">
-                  静态博客搭建指南
-                </a>
+                Chrome插件与应用开发(一)
               
             
           </h1>
@@ -309,8 +317,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-28T15:37:06+08:00" content="2016-05-28">
-              2016-05-28
+            <time itemprop="dateCreated" datetime="2016-07-16T10:28:00+08:00" content="2016-07-16">
+              2016-07-16
             </time>
           </span>
 
@@ -323,8 +331,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/插件/" itemprop="url" rel="index">
+                    <span itemprop="name">插件</span>
                   </a>
                 </span>
 
@@ -358,270 +366,106 @@
       
 
       
-        
-          <h2 id="利用Github搭建技术博客"><a href="#利用Github搭建技术博客" class="headerlink" title="利用Github搭建技术博客"></a>利用Github搭建技术博客</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
-<li>安装git</li>
-<li>安装Node.js</li>
-<li>安装hexo<br>  <code>$ npm install -g hexo</code></li>
+        <p>[TOC]</p>
+<h2 id="Chrome扩展与应用开发"><a href="#Chrome扩展与应用开发" class="headerlink" title="Chrome扩展与应用开发"></a>Chrome扩展与应用开发</h2><h3 id="初窥"><a href="#初窥" class="headerlink" title="初窥"></a>初窥</h3><p>Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>Chrome扩展是一系列文件的集合，包括：</p>
+<ul>
+<li>HTML文件</li>
+<li>CSS文件</li>
+<li>JavaScript文件</li>
+<li>图片等静态文件</li>
+<li>manifest.json(最重要)</li>
 </ul>
-<blockquote>
-<p>hexo是一款基于Node.js的静态博客框架</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/28/静态博客搭建指南/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<a id="more"></a>
+<p>Chrome通过读取manifest.json文件来获取扩展相关信息，包括扩展名称、版本、更新地址、请求权限、扩展的UI界面入口等。</p>
+<p>字段定义：</p>
+<ul>
+<li>name : 扩展的名称</li>
+<li>version : 扩展的版本(最多可以由三个圆点分成四段，每段只能是数字，数字不能大于65535，不能以0开头(可以是0，不能是0123)，版本号左侧为高位，新版本号需要比旧版本号高)</li>
+<li>description : 扩展的描述</li>
+<li>icons : 扩展相关图标文件的位置</li>
+<li>browser_action : 指定扩展图标放在Chrome工具栏中<ul>
+<li>default_icon : 定义了相应图标文件的位置</li>
+<li>default_title : 当用户鼠标悬停与扩展图标上时显示的文字</li>
+<li>default_popup : 当用户单击扩展图标时所显示的页面的文件的位置</li>
+</ul>
+</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>Chrome将其平台上的程序分为扩展和应用，并且使用同样的文件结构</p>
+<p>扩展与浏览器结合紧密，更强调扩展浏览器功能。而应用无法像扩展一样轻易获取用户在浏览器中浏览的内容并修改，它更像一个独立的，与Chrome关联不大的程序。此时可以把Chrome看成一个开发环境而不是浏览器。</p>
+<p>Chrome应用还分为 <em>Hosted App(托管应用)</em> 和 <em>Packaged App(打包应用)</em> 。Hosted App更像一个高级的书签，结构比较简单。而Packaged App将文件打包在一个，一般可以离线时使用，因为文件都打包在本地。</p>
+<p>PS：所有Demo都托管在Github上：<a href="https://github.com/GuanyuChen/Chrome-plugins" title="Chrome-plugins" target="_blank" rel="external">戳这里</a></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>由上文我们已知Chrome扩展的文件结构为 <em>HTML文件</em> , <em>CSS文件</em> , <em>js文件</em> , <em>图片等静态资源文件</em> , <em>manifest.json</em> .</p>
+<p>在具备了以上文件结构之后，我们可以将扩展载入Chrome中运行。</p>
+<ol>
+<li>依次点击功能栏最右边 –&gt; 更多工具 –&gt; 扩展程序，打开扩展程序页面</li>
+<li>勾选右上角“开发者模式”</li>
+<li>点击“加载已解压的扩展程序”，选择扩展所在的文件夹</li>
+</ol>
+<h3 id="Manifest文件格式"><a href="#Manifest文件格式" class="headerlink" title="Manifest文件格式"></a>Manifest文件格式</h3><p>manifest.json文件是整个扩展的入口，可以告诉Chrome这个扩展的相关信息，是扩展必不可少的部分。</p>
+<p>manifest.json使用JSON格式保存数据</p>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>JSON是一种通用的数据交换格式。它包含两种结构：key:value对的形式，名称和值之间用冒号(:)连接，多个key:value对之间用逗号连接，最后在整个对象两侧加上”{“,”}” ; 还有一种是值的有序集合，值与值之间用逗号连接，最后在整个数组两侧加上”[“,”]”</p>
+<p>无论是对象形式还是数组形式，它们的值均可以是字符串、数字、对象、数组、布尔和null中的一种，也就是说，JSON可以嵌套。</p>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Harry Potter&quot;,</span><br><span class="line">  &quot;author&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;J.K.Rowling&quot;,</span><br><span class="line">    &quot;birth&quot;: 1964</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;books&quot;:[</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;,</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;,</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="manifest关键属性"><a href="#manifest关键属性" class="headerlink" title="manifest关键属性"></a>manifest关键属性</h4><p>Google官方文档中对于扩展和应用给出两个不同的Manifest介绍页面，这是因为有些属性只能扩展使用，而有些属性只能由应用使用，如果两者同时出现，会使Chrome困惑。</p>
+<p>扩展的<code>manifest.json</code>必须包含<code>name</code>,<code>version</code>,<code>manifest_version</code>,且<code>manifest_version</code>值只能为2；对于应用来说，还必须包含<code>app</code>属性。</p>
+<p>可选的常用的属性有很多，我们应该保留一份模板，在编写新扩展时直接填入新的值。</p>
+<p>PS : 对于非自定义属性，JavaScript可以直接像读取对象属性那样读取或更改。</p>
+<p>PPS : 《高性能JavaScript》、《编写可维护的JavaScript》</p>
+
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/28/基础CSS总结/" itemprop="url">
-                  基础CSS总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-28T10:38:00+08:00" content="2016-05-28">
-              2016-05-28
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-
-          // 插入位置
+            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>[TOC]</p>
-<h2 id="基础知识总结"><a href="#基础知识总结" class="headerlink" title="基础知识总结"></a>基础知识总结</h2><h3 id="CSS总结"><a href="#CSS总结" class="headerlink" title="CSS总结"></a>CSS总结</h3><h4 id="基础CSS"><a href="#基础CSS" class="headerlink" title="基础CSS"></a>基础CSS</h4><p>CSS本质可以分为宏观和微观两部分。宏观上它的存在就是为了控制页面的显示样式，包括布局，颜色，字体等。微观上则是实现这种控制功能的各种属性的定义和工作原理。</p>
-<p>常用基础样式：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/28/基础CSS总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/14/atom常用插件及操作/" rel="next" title="atom常用插件及操作">
+                <i class="fa fa-chevron-left"></i> atom常用插件及操作
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/27/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-27T22:53:06+08:00" content="2016-05-27">
-              2016-05-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-
-          // 插入位置
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/27/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -629,6 +473,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -648,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/9473858.jpg"
@@ -728,6 +585,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome扩展与应用开发"><span class="nav-number">1.</span> <span class="nav-text">Chrome扩展与应用开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初窥"><span class="nav-number">1.1.</span> <span class="nav-text">初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">1.1.1.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manifest文件格式"><span class="nav-number">1.3.</span> <span class="nav-text">Manifest文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.3.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest关键属性"><span class="nav-number">1.3.2.</span> <span class="nav-text">manifest关键属性</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -841,6 +709,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

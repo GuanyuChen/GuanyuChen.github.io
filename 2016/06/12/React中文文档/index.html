@@ -99,7 +99,7 @@
 <meta name="description" content="[TOC]
 React 中文文档读书笔记React 概览核心思想 : 封装组件，各个组件维护自己的状态和UI，当状态变更，自动重新渲染整个组件。
 基于这种方式的一个直观感受就是不再需要不厌其烦地来回查找某个DOM元素，然后操作DOM去更改UI。
-核心概念 : 
+核心概念 :
 
 组件
 JSX
@@ -112,20 +112,20 @@ Data Flow">
 <meta property="og:description" content="[TOC]
 React 中文文档读书笔记React 概览核心思想 : 封装组件，各个组件维护自己的状态和UI，当状态变更，自动重新渲染整个组件。
 基于这种方式的一个直观感受就是不再需要不厌其烦地来回查找某个DOM元素，然后操作DOM去更改UI。
-核心概念 : 
+核心概念 :
 
 组件
 JSX
 Virtual DOM
 Data Flow">
 <meta property="og:image" content="http://o7v8inkz5.bkt.clouddn.com/image/jpg/QQ%E5%9B%BE%E7%89%8720160614165152.png">
-<meta property="og:updated_time" content="2016-06-14T15:12:21.597Z">
+<meta property="og:updated_time" content="2016-07-16T02:31:39.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React中文文档">
 <meta name="twitter:description" content="[TOC]
 React 中文文档读书笔记React 概览核心思想 : 封装组件，各个组件维护自己的状态和UI，当状态变更，自动重新渲染整个组件。
 基于这种方式的一个直观感受就是不再需要不厌其烦地来回查找某个DOM元素，然后操作DOM去更改UI。
-核心概念 : 
+核心概念 :
 
 组件
 JSX
@@ -383,7 +383,7 @@ Data Flow">
         <p>[TOC]</p>
 <h2 id="React-中文文档读书笔记"><a href="#React-中文文档读书笔记" class="headerlink" title="React 中文文档读书笔记"></a>React 中文文档读书笔记</h2><h3 id="React-概览"><a href="#React-概览" class="headerlink" title="React 概览"></a>React 概览</h3><p>核心思想 : 封装组件，各个组件维护自己的状态和UI，当状态变更，自动重新渲染整个组件。</p>
 <p>基于这种方式的一个直观感受就是不再需要不厌其烦地来回查找某个DOM元素，然后操作DOM去更改UI。</p>
-<p>核心概念 : </p>
+<p>核心概念 :</p>
 <ul>
 <li>组件</li>
 <li>JSX</li>
@@ -409,7 +409,7 @@ Data Flow">
 <p>  单向数据绑定时React推崇的一个应用架构的方式。当应用足够复杂时会体会到它的好处。</p>
 </li>
 </ul>
-<h3 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a>开发环境配置</h3><h4 id="前端工程化是一个很重要的概念"><a href="#前端工程化是一个很重要的概念" class="headerlink" title="前端工程化是一个很重要的概念"></a>前端工程化是一个很重要的概念</h4><p>React开发环境我们关注两个点 : </p>
+<h3 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a>开发环境配置</h3><h4 id="前端工程化是一个很重要的概念"><a href="#前端工程化是一个很重要的概念" class="headerlink" title="前端工程化是一个很重要的概念"></a>前端工程化是一个很重要的概念</h4><p>React开发环境我们关注两个点 :</p>
 <ul>
 <li>编译JSX</li>
 <li>CommonJS支持</li>
@@ -418,7 +418,7 @@ Data Flow">
 <p>安装 : <code>npm install -g webpack</code></p>
 <p>Webpack使用 <code>webpack.config.js</code> 的配置文件。要编译 JSX ,要先安装对应的loader <code>npm install jsx-loader --save-dev</code></p>
 <p>假设我们当前工程目录有一个入口文件 <code>entry.js</code> ，React组件放在 <code>components/</code>目录下，组件被<code>entry.js</code>引用。要使用<code>entry.js</code>，我们把这个文件制定输出到<code>dist/bundle.js</code>。</p>
-<p>Webpack配置如下 : </p>
+<p>Webpack配置如下 :</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    entry : &apos;./entry.js&apos;,</span><br><span class="line">    output : &#123;</span><br><span class="line">        path : _dirname,</span><br><span class="line">        filename : &apos;bundle.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    reslove : &#123;</span><br><span class="line">        extensions : [&apos;&apos;,&apos;.js&apos;,&apos;.jsx&apos;]</span><br><span class="line">    &#125;,</span><br><span class="line">    module : &#123;</span><br><span class="line">        loaders : [</span><br><span class="line">            &#123;test : /\.jsx$/, loaders : [&apos;jsx?harmony&apos;]&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>reslove</code> 指定可以被rquire的文件的后缀。比如<code>hello.jsx</code>这样的文件就可以直接<code>require(./hello)</code>引用。</p>
 <p><code>loaders</code> 指定jsx-loader编译文件后缀为.jsx的文件，建议给含有JSX语法的文件添加.jsx后缀名。</p>
@@ -735,7 +735,7 @@ React.render(myElement,document.body);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -743,7 +743,7 @@ React.render(myElement,document.body);
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -752,7 +752,7 @@ React.render(myElement,document.body);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
