@@ -1,0 +1,764 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+前端面试江湖JavaScript初级面试题JavaScript是基于对象的，事件驱动的
+FireFox和IE存在大量兼容性问题，因为它们对Web标准支持不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试江湖总结">
+<meta property="og:url" content="http://yoursite.com/2016/07/30/前端面试江湖总结/index.html">
+<meta property="og:site_name" content="Guanyu">
+<meta property="og:description" content="[TOC]
+前端面试江湖JavaScript初级面试题JavaScript是基于对象的，事件驱动的
+FireFox和IE存在大量兼容性问题，因为它们对Web标准支持不同">
+<meta property="og:updated_time" content="2016-07-30T08:31:14.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试江湖总结">
+<meta name="twitter:description" content="[TOC]
+前端面试江湖JavaScript初级面试题JavaScript是基于对象的，事件驱动的
+FireFox和IE存在大量兼容性问题，因为它们对Web标准支持不同">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 前端面试江湖总结 | Guanyu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Guanyu</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">有关开发与人生</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '-zURDfE9QHufm-semmRx','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端面试江湖总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-30T09:40:07+08:00" content="2016-07-30">
+              2016-07-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+
+          // 插入位置
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="前端面试江湖"><a href="#前端面试江湖" class="headerlink" title="前端面试江湖"></a>前端面试江湖</h2><h3 id="JavaScript初级面试题"><a href="#JavaScript初级面试题" class="headerlink" title="JavaScript初级面试题"></a>JavaScript初级面试题</h3><p>JavaScript是基于对象的，事件驱动的</p>
+<p>FireFox和IE存在大量兼容性问题，因为它们对Web标准支持不同</p>
+<a id="more"></a>
+<h4 id="字符串及数据类型"><a href="#字符串及数据类型" class="headerlink" title="字符串及数据类型"></a>字符串及数据类型</h4><h5 id="截取字符串substr"><a href="#截取字符串substr" class="headerlink" title="截取字符串substr"></a>截取字符串<code>substr</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// substr用于返回从指定位置开始的，指定长度的子字符串</span><br><span class="line">// String.substr(start,length)</span><br><span class="line">// start必需，是子字符串的起始位置；length可选，指子字符串的字符个数</span><br><span class="line">var str = &quot;www.baidu.com&quot;;//截取网址中的baidu</span><br><span class="line">var result = str.substr(4,5);</span><br></pre></td></tr></table></figure>
+<h5 id="判断字符串组成"><a href="#判断字符串组成" class="headerlink" title="判断字符串组成"></a>判断字符串组成</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 采取正则匹配</span><br><span class="line">// ^[a-z] 匹配小写字母 [A-Z] 匹配大写字母 &#123;n&#125; 匹配几位</span><br><span class="line">// \w 任意的字母、数字、下划线</span><br><span class="line">// 题目：第一个是字母，后面可以是字母数字下划线，总长度为5-20</span><br><span class="line">var str = /^[a-zA-Z]&#123;1&#125;\w&#123;4,19&#125;/;</span><br></pre></td></tr></table></figure>
+<h5 id="编写方法，获取字符串的字符长度"><a href="#编写方法，获取字符串的字符长度" class="headerlink" title="编写方法，获取字符串的字符长度"></a>编写方法，获取字符串的字符长度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function getLength(str)&#123;</span><br><span class="line">  return str.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="子串定位"><a href="#子串定位" class="headerlink" title="子串定位"></a>子串定位</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 给定一个字符串str=&quot;adadfdseffqdjhuserfefsefseetsdg&quot;,找出子串&quot;qdjhu&quot;</span><br><span class="line">// 可用indexOf()实现</span><br><span class="line">// indexOf(str,index) 判断str在父串中第一次出现的位置，从0开始，没找到则返回-1,index为可选参数，表示开始检索的位置；方便判断和截取字符串</span><br><span class="line">//lastIndexOf() 从后往前搜索 子字符串最后出现的位置</span><br><span class="line">var str = &quot;adadfdseffqdjhuserfefsefseetsdg&quot;;</span><br><span class="line">var search = &quot;qdjhu&quot;;</span><br><span class="line">var start = str.indexOf(serach);</span><br><span class="line">var result = str.substr(start,start+search.length);</span><br></pre></td></tr></table></figure>
+<h5 id="获取浏览器URL的查询字符串的参数"><a href="#获取浏览器URL的查询字符串的参数" class="headerlink" title="获取浏览器URL的查询字符串的参数"></a>获取浏览器URL的查询字符串的参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function getQuery(name)&#123;</span><br><span class="line">  var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">  var r = window.location.search.substr(1).match(reg);</span><br><span class="line">  if (r != null) &#123;</span><br><span class="line">    return decodeURIComponent(r[2]);</span><br><span class="line">  &#125;</span><br><span class="line">  return null;</span><br><span class="line">&#125;</span><br><span class="line">// match()返回匹配正则表达式的字符串的数组</span><br><span class="line">// decodeURI()与decodeURIComponent()区别</span><br><span class="line">// decodeURIComponent()把所有能转义的字符全都转义回来，包括URL前半部分的网址部分</span><br><span class="line">// decodeURI()只转义后面的search部分</span><br><span class="line">// decodeURI()与encodeURI()对应 ; decodeURIComponent()与encodeURIComponent()对应</span><br></pre></td></tr></table></figure>
+<h5 id="删除字符串左边的空格方法"><a href="#删除字符串左边的空格方法" class="headerlink" title="删除字符串左边的空格方法"></a>删除字符串左边的空格方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function leftTirm(str) &#123;</span><br><span class="line">  return str.replace(/^\s*/g,&quot;&quot;); // ^符号表示从头开始匹配</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="五大基本数据类型"><a href="#五大基本数据类型" class="headerlink" title="五大基本数据类型"></a>五大基本数据类型</h5><p><strong>Undefined Null Number String Boolean</strong></p>
+<h5 id="typeof-返回哪些数据类型"><a href="#typeof-返回哪些数据类型" class="headerlink" title="typeof 返回哪些数据类型"></a>typeof 返回哪些数据类型</h5><p><strong>undefined number string boolean function object</strong></p>
+<p>例：</p>
+<ol>
+<li>typeof(null) == “object”</li>
+<li>typeof(undefined) == “undefined”</li>
+<li>typeof(NaN) == “number”</li>
+<li>typeof(NaN == undefined) == “boolean”</li>
+</ol>
+<h5 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h5><pre><code>&quot;5&quot;+3 的结果是 &quot;53&quot;
+</code></pre><h5 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 思想是从末尾开始截取元素，组成新的字符串</span><br><span class="line">function revStr(str) &#123;</span><br><span class="line">  var tem = &quot;&quot;;</span><br><span class="line">  for (var i = str.length-1;i&gt;=0;i--) &#123;</span><br><span class="line">    tem += str.substr(i,1) || str.charAt(i); // 两种都能实现效果</span><br><span class="line">  &#125;</span><br><span class="line">  return tem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="检测变量是否为string"><a href="#检测变量是否为string" class="headerlink" title="检测变量是否为string"></a>检测变量是否为string</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello world&quot;</span><br><span class="line">// 判断变量是否为string 有两种方式</span><br><span class="line">// 1. typeof str == &quot;string&quot; (类型为string)</span><br><span class="line">// 2. str.constructor == &quot;String&quot; (原型指针指向String对象)</span><br><span class="line">function isString(str) &#123;</span><br><span class="line">  if (typeof str == &quot;string&quot; || str.constructor == String) &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="系统对象只读"><a href="#系统对象只读" class="headerlink" title="系统对象只读"></a>系统对象只读</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = (Math.PI++);</span><br><span class="line">var b = (Math.PI++);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br><span class="line">// a b打印的值都是3.141592653589793 因为系统对象的属性是只读的，不能更改。</span><br></pre></td></tr></table></figure>
+<h5 id="将字符串”abc-de-gh”变成”gh-amp-de-amp-abc-amp-”"><a href="#将字符串”abc-de-gh”变成”gh-amp-de-amp-abc-amp-”" class="headerlink" title="将字符串”abc-de-gh”变成”gh&amp;de&amp;abc&amp;”"></a>将字符串”abc-de-gh”变成”gh&amp;de&amp;abc&amp;”</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;abc-de-gh&quot;;</span><br><span class="line">var arr = str.split(&apos;-&apos;); //先把字符串分割成数组</span><br><span class="line">var result = arr.reverse().join(&apos;&amp;&apos;) // 数组翻转并拼接</span><br></pre></td></tr></table></figure>
+<h5 id="字符串常用操作"><a href="#字符串常用操作" class="headerlink" title="字符串常用操作"></a>字符串常用操作</h5><ol>
+<li><p>求字符串长<br> stringObject.length</p>
+</li>
+<li><p>字符串拼接<br> stringObject.concat(str1,str2,…) // 把str1,str2,..按顺序连接到StringObject尾部，返回连接后的字符串，注意StringObject本身没有改变<br> 更常用的是’+’来进行拼接</p>
+</li>
+<li>字符串比较<br> 可以用’==’,会先强转类型再比较</li>
+<li>子串定位<br> indexOf()</li>
+<li>字符串插入<br> 可以先从插入点分割，然后与要插入的字符串拼接起来</li>
+<li>字符串删除<br> 字符串删除可以先提取出要删除的子字符串，然后replace(str,””)用空串替换；也可以两次截取，然后再拼接</li>
+<li><p>字符串替换<br> stringObject.replace(str/reg,str); // 第一个参数是被替换的字符串或匹配的正则表达式，第二个参数是替换字符串</p>
+</li>
+<li><p>常用API  </p>
+<ol>
+<li><code>stringObject.charAt(index)</code> // 返回指定位置的字符  </li>
+<li><code>stringObject.split(separator,howmany)</code> // 字符串分割成字符串数组 separator是必需参数，表示分隔符，howmany可选，表示字符串数组长度  </li>
+<li><code>stringObject.slice(start,end)</code> // 提取字符串的某个部分并返回start是开始位置(包括start)，end是结束位置(不包括end)<br>PS : slice最大的不同就是参数可以为负数，如果为负数，则表示从后往前查的位置，比如-1是最后一个字符</li>
+<li><code>stringObject.substring(start,end)</code> // 截取字符串并返回；start必需 非负 stop不必需 返回的字符串包括start不包括stop 长度为stop-start 如果start&gt;stop 二者值会先交换</li>
+<li><code>stringObject.toLowerCase()</code> 大写转小写</li>
+<li><code>stringObject.toUpperCase()</code> 小写转大写</li>
+<li><code>arrayObject.join(separator)</code> 把数组元素放入一个字符串，用separator分隔</li>
+</ol>
+</li>
+</ol>
+<p>PS : JavaScript中的字符串是不可变的，任意对其进行改变的操作都是返回一个新字符串</p>
+<h5 id="undefined变量与undeclared变量区别"><a href="#undefined变量与undeclared变量区别" class="headerlink" title="undefined变量与undeclared变量区别"></a>undefined变量与undeclared变量区别</h5><p>根本区别在与，undefined是JavaScript语言类型，undeclared是JavaScript语言错误</p>
+<p>undeclared的变量类似于没有var声明定义，浏览器会自动把它加到全局作用域</p>
+<h5 id="alert中换行"><a href="#alert中换行" class="headerlink" title="alert中换行"></a>alert中换行</h5><pre><code>alert(&quot;hello\nworld&quot;); // 用\n来实现
+</code></pre><h5 id="document-write-与innerHTML区别"><a href="#document-write-与innerHTML区别" class="headerlink" title="document.write()与innerHTML区别"></a>document.write()与innerHTML区别</h5><p>document.write()是直接写入页面的内容流，重绘页面</p>
+<p>innerHTML是修改某个DOM节点的内容，更优</p>
+<h5 id="JavaScript三种弹出消息提醒"><a href="#JavaScript三种弹出消息提醒" class="headerlink" title="JavaScript三种弹出消息提醒"></a>JavaScript三种弹出消息提醒</h5><ul>
+<li><p>alert()  弹出警告</p>
+</li>
+<li><p>confirm() 弹出确认 用户点击确认返回true 点击取消返回false</p>
+</li>
+<li><p>prompt() 弹出输入框 用户点击确认返回用户输入 点击取消返回null</p>
+</li>
+</ul>
+<h5 id="鼠标单击页面任意标签-弹出标签名称"><a href="#鼠标单击页面任意标签-弹出标签名称" class="headerlink" title="鼠标单击页面任意标签 弹出标签名称"></a>鼠标单击页面任意标签 弹出标签名称</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.onclick = function(e) &#123;</span><br><span class="line">  var e = (e||event);</span><br><span class="line">  var o = e[&quot;target&quot;]||e[&quot;srcElement&quot;];</span><br><span class="line">  alert(o.tagName.toLowerCase());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="代码结果"><a href="#代码结果" class="headerlink" title="代码结果"></a>代码结果</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">function f() &#123;</span><br><span class="line">  console.log(a);</span><br><span class="line">  var a = 2;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br><span class="line">// 控制台会打印undefined。因为函数内部重新用var定义了一个a，所以console。log(a)时，此时a的声明提前，但却未赋值。如果把var去掉，则打印1 。</span><br></pre></td></tr></table></figure>
+<h5 id="innerHTML与outerHTML区别"><a href="#innerHTML与outerHTML区别" class="headerlink" title="innerHTML与outerHTML区别"></a>innerHTML与outerHTML区别</h5><p>innerHTML用于设置或获取对象起始和结束标签内的HTML</p>
+<p>outerHTML用于设置或获取对象及其内容的HTML(包括对象自身)</p>
+<h5 id="单击按钮刷新整个页面"><a href="#单击按钮刷新整个页面" class="headerlink" title="单击按钮刷新整个页面"></a>单击按钮刷新整个页面</h5><ol>
+<li><p>reload()方法强迫浏览器刷新当前页面<br><code>location.reload(参数);</code> //如果是false，从客户端缓存里取当前页；true，使用GET方式从服务器取最新页面</p>
+</li>
+<li><p>replace()通过指定URL来替换当前缓存在历史里的项目，使用replace方法不能使用前进、后退来访问历史<br><code>location.replace(URL);</code></p>
+</li>
+</ol>
+<h4 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h4><h5 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h5>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/16/Chrome插件与应用开发-一/" rel="next" title="Chrome插件与应用开发(一)">
+                <i class="fa fa-chevron-left"></i> Chrome插件与应用开发(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o7v8inkz5.bkt.clouddn.com/image/jpg/9473858.jpg"
+               alt="Guanyu Chen" />
+          <p class="site-author-name" itemprop="name">Guanyu Chen</p>
+          <p class="site-description motion-element" itemprop="description">百年歌自苦 未见有知音</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GuanyuChen" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3493100560/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-chen-88-5" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端面试江湖"><span class="nav-number">1.</span> <span class="nav-text">前端面试江湖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript初级面试题"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript初级面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串及数据类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">字符串及数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#截取字符串substr"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">截取字符串substr</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断字符串组成"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">判断字符串组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编写方法，获取字符串的字符长度"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">编写方法，获取字符串的字符长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子串定位"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">子串定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取浏览器URL的查询字符串的参数"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">获取浏览器URL的查询字符串的参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除字符串左边的空格方法"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">删除字符串左边的空格方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五大基本数据类型"><span class="nav-number">1.1.1.7.</span> <span class="nav-text">五大基本数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#typeof-返回哪些数据类型"><span class="nav-number">1.1.1.8.</span> <span class="nav-text">typeof 返回哪些数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串拼接"><span class="nav-number">1.1.1.9.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串反转"><span class="nav-number">1.1.1.10.</span> <span class="nav-text">字符串反转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#检测变量是否为string"><span class="nav-number">1.1.1.11.</span> <span class="nav-text">检测变量是否为string</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#系统对象只读"><span class="nav-number">1.1.1.12.</span> <span class="nav-text">系统对象只读</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将字符串”abc-de-gh”变成”gh-amp-de-amp-abc-amp-”"><span class="nav-number">1.1.1.13.</span> <span class="nav-text">将字符串”abc-de-gh”变成”gh&de&abc&”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串常用操作"><span class="nav-number">1.1.1.14.</span> <span class="nav-text">字符串常用操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined变量与undeclared变量区别"><span class="nav-number">1.1.1.15.</span> <span class="nav-text">undefined变量与undeclared变量区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#alert中换行"><span class="nav-number">1.1.1.16.</span> <span class="nav-text">alert中换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#document-write-与innerHTML区别"><span class="nav-number">1.1.1.17.</span> <span class="nav-text">document.write()与innerHTML区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaScript三种弹出消息提醒"><span class="nav-number">1.1.1.18.</span> <span class="nav-text">JavaScript三种弹出消息提醒</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#鼠标单击页面任意标签-弹出标签名称"><span class="nav-number">1.1.1.19.</span> <span class="nav-text">鼠标单击页面任意标签 弹出标签名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码结果"><span class="nav-number">1.1.1.20.</span> <span class="nav-text">代码结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#innerHTML与outerHTML区别"><span class="nav-number">1.1.1.21.</span> <span class="nav-text">innerHTML与outerHTML区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单击按钮刷新整个页面"><span class="nav-number">1.1.1.22.</span> <span class="nav-text">单击按钮刷新整个页面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM节点"><span class="nav-number">1.1.2.</span> <span class="nav-text">DOM节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取元素"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">获取元素</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guanyu Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
