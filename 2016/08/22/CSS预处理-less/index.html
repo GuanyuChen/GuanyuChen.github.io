@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Chrome," />
+  <meta name="keywords" content="CSS,less," />
 
 
 
@@ -97,27 +97,33 @@
 
 
 <meta name="description" content="[TOC]
-Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
-扩展Chrome扩展是一系列文件的集合，包括：
-
-HTML文件">
+CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
+Less 可以运行在 Node 或浏览器端。
+使用方法安装$ npm install -g less
+命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
+$ lessc styles.less
+将编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chrome插件与应用开发(一)">
-<meta property="og:url" content="http://yoursite.com/2016/07/16/Chrome插件与应用开发-一/index.html">
+<meta property="og:title" content="CSS预处理-less">
+<meta property="og:url" content="http://yoursite.com/2016/08/22/CSS预处理-less/index.html">
 <meta property="og:site_name" content="Guanyu">
 <meta property="og:description" content="[TOC]
-Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
-扩展Chrome扩展是一系列文件的集合，包括：
-
-HTML文件">
-<meta property="og:updated_time" content="2016-07-16T08:59:28.602Z">
+CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
+Less 可以运行在 Node 或浏览器端。
+使用方法安装$ npm install -g less
+命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
+$ lessc styles.less
+将编">
+<meta property="og:updated_time" content="2016-08-22T02:06:23.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chrome插件与应用开发(一)">
+<meta name="twitter:title" content="CSS预处理-less">
 <meta name="twitter:description" content="[TOC]
-Chrome扩展与应用开发初窥Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。
-扩展Chrome扩展是一系列文件的集合，包括：
-
-HTML文件">
+CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
+Less 可以运行在 Node 或浏览器端。
+使用方法安装$ npm install -g less
+命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
+$ lessc styles.less
+将编">
 
 
 
@@ -135,7 +141,7 @@ HTML文件">
   };
 </script>
 
-  <title> Chrome插件与应用开发(一) | Guanyu </title>
+  <title> CSS预处理-less | Guanyu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -305,7 +311,7 @@ HTML文件">
             
             
               
-                Chrome插件与应用开发(一)
+                CSS预处理-less
               
             
           </h1>
@@ -317,8 +323,8 @@ HTML文件">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-16T10:28:00+08:00" content="2016-07-16">
-              2016-07-16
+            <time itemprop="dateCreated" datetime="2016-08-22T09:13:09+08:00" content="2016-08-22">
+              2016-08-22
             </time>
           </span>
 
@@ -331,8 +337,8 @@ HTML文件">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/插件/" itemprop="url" rel="index">
-                    <span itemprop="name">插件</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -367,52 +373,37 @@ HTML文件">
 
       
         <p>[TOC]</p>
-<h2 id="Chrome扩展与应用开发"><a href="#Chrome扩展与应用开发" class="headerlink" title="Chrome扩展与应用开发"></a>Chrome扩展与应用开发</h2><h3 id="初窥"><a href="#初窥" class="headerlink" title="初窥"></a>初窥</h3><p>Chrome是Google公司基于WebKit开发的一款浏览器，内嵌Google自行研发的V8引擎用来提高解释JavaScript的速度。同时Chrome还允许开发者自定义各种各样的扩展来扩充其功能，并支持HTML5编写桌面程序。以上特点使得Chrome成为前端开发领域最主流的浏览器和平台。</p>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>Chrome扩展是一系列文件的集合，包括：</p>
-<ul>
-<li>HTML文件</li>
-<li>CSS文件</li>
-<li>JavaScript文件</li>
-<li>图片等静态文件</li>
-<li>manifest.json(最重要)</li>
-</ul>
-<a id="more"></a>
-<p>Chrome通过读取manifest.json文件来获取扩展相关信息，包括扩展名称、版本、更新地址、请求权限、扩展的UI界面入口等。</p>
-<p>字段定义：</p>
-<ul>
-<li>name : 扩展的名称</li>
-<li>version : 扩展的版本(最多可以由三个圆点分成四段，每段只能是数字，数字不能大于65535，不能以0开头(可以是0，不能是0123)，版本号左侧为高位，新版本号需要比旧版本号高)</li>
-<li>description : 扩展的描述</li>
-<li>icons : 扩展相关图标文件的位置</li>
-<li>browser_action : 指定扩展图标放在Chrome工具栏中<ul>
-<li>default_icon : 定义了相应图标文件的位置</li>
-<li>default_title : 当用户鼠标悬停与扩展图标上时显示的文字</li>
-<li>default_popup : 当用户单击扩展图标时所显示的页面的文件的位置</li>
-</ul>
-</li>
-</ul>
-<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>Chrome将其平台上的程序分为扩展和应用，并且使用同样的文件结构</p>
-<p>扩展与浏览器结合紧密，更强调扩展浏览器功能。而应用无法像扩展一样轻易获取用户在浏览器中浏览的内容并修改，它更像一个独立的，与Chrome关联不大的程序。此时可以把Chrome看成一个开发环境而不是浏览器。</p>
-<p>Chrome应用还分为 <em>Hosted App(托管应用)</em> 和 <em>Packaged App(打包应用)</em> 。Hosted App更像一个高级的书签，结构比较简单。而Packaged App将文件打包在一个，一般可以离线时使用，因为文件都打包在本地。</p>
-<p>PS：所有Demo都托管在Github上：<a href="https://github.com/GuanyuChen/Chrome-plugins" title="Chrome-plugins" target="_blank" rel="external">戳这里</a></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>由上文我们已知Chrome扩展的文件结构为 <em>HTML文件</em> , <em>CSS文件</em> , <em>js文件</em> , <em>图片等静态资源文件</em> , <em>manifest.json</em> .</p>
-<p>在具备了以上文件结构之后，我们可以将扩展载入Chrome中运行。</p>
-<ol>
-<li>依次点击功能栏最右边 –&gt; 更多工具 –&gt; 扩展程序，打开扩展程序页面</li>
-<li>勾选右上角“开发者模式”</li>
-<li>点击“加载已解压的扩展程序”，选择扩展所在的文件夹</li>
+<h2 id="CSS预处理器-less篇"><a href="#CSS预处理器-less篇" class="headerlink" title="CSS预处理器-less篇"></a>CSS预处理器-less篇</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
+<p>Less 可以运行在 Node 或浏览器端。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>$ npm install -g less
+</code></pre><h4 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h4><p>将less包全局安装，就可以命令行调用<code>lessc</code>命令来编译.less文件</p>
+<pre><code>$ lessc styles.less
+</code></pre><p>将编译结果输出到指定的.css文件</p>
+<pre><code>$ lessc styles.less styles.css
+</code></pre><p>使用<code>clean-css</code>插件将编译结果压缩后输出到指定文件</p>
+<pre><code>$ lessc --clean-css styles.less styles.min.css
+</code></pre><p>lessc命令查询帮助</p>
+<pre><code>$ lessc
+</code></pre><h4 id="代码使用"><a href="#代码使用" class="headerlink" title="代码使用"></a>代码使用</h4><p>从node调用编译器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var less = require(&apos;less&apos;);</span><br><span class="line"></span><br><span class="line">less.render(&apos;.class &#123; width: (1 + 1) &#125;&apos;, function (e, output) &#123;</span><br><span class="line">  console.log(output.css);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>将会打印输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class&#123;</span><br><span class="line">    width:2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>可以通过一些选项编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var less = require(&apos;less&apos;);</span><br><span class="line"></span><br><span class="line">less.render(&apos;.class &#123; width: (1 + 1) &#125;&apos;,</span><br><span class="line">    &#123;</span><br><span class="line">      paths: [&apos;.&apos;, &apos;./lib&apos;],  // Specify search paths for @import directives</span><br><span class="line">      filename: &apos;style.less&apos;, // Specify a filename, for better error messages</span><br><span class="line">      compress: true          // Minify CSS output</span><br><span class="line">    &#125;,</span><br><span class="line">    function (e, output) &#123;</span><br><span class="line">       console.log(output.css);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="浏览器端使用"><a href="#浏览器端使用" class="headerlink" title="浏览器端使用"></a>浏览器端使用</h4><blockquote>
+<p>引入less.js文件建议在开发环境中使用，不建议在生产环境中使用</p>
+</blockquote>
+<p>将link标签的rel属性设置为<code>rel = &quot;stylesheet/less&quot;</code></p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;
+</code></pre><p>引入less.js文件</p>
+<pre><code>&lt;script src=&quot;less.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre><h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ol>
+<li>样式表要在less.js前引入</li>
+<li>由于每个.less文件是单独编译，所以内部定义的变量，混合类型和命名空间不能访问</li>
+<li>由于浏览器加载外部资源的同源策略，需要启用CORS</li>
 </ol>
-<h3 id="Manifest文件格式"><a href="#Manifest文件格式" class="headerlink" title="Manifest文件格式"></a>Manifest文件格式</h3><p>manifest.json文件是整个扩展的入口，可以告诉Chrome这个扩展的相关信息，是扩展必不可少的部分。</p>
-<p>manifest.json使用JSON格式保存数据</p>
-<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>JSON是一种通用的数据交换格式。它包含两种结构：key:value对的形式，名称和值之间用冒号(:)连接，多个key:value对之间用逗号连接，最后在整个对象两侧加上”{“,”}” ; 还有一种是值的有序集合，值与值之间用逗号连接，最后在整个数组两侧加上”[“,”]”</p>
-<p>无论是对象形式还是数组形式，它们的值均可以是字符串、数字、对象、数组、布尔和null中的一种，也就是说，JSON可以嵌套。</p>
-<p>例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Harry Potter&quot;,</span><br><span class="line">  &quot;author&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;J.K.Rowling&quot;,</span><br><span class="line">    &quot;birth&quot;: 1964</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;books&quot;:[</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;,</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;,</span><br><span class="line">  &quot;Harry Potter and the Philosopher&apos;s Stone&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="manifest关键属性"><a href="#manifest关键属性" class="headerlink" title="manifest关键属性"></a>manifest关键属性</h4><p>Google官方文档中对于扩展和应用给出两个不同的Manifest介绍页面，这是因为有些属性只能扩展使用，而有些属性只能由应用使用，如果两者同时出现，会使Chrome困惑。</p>
-<p>扩展的<code>manifest.json</code>必须包含<code>name</code>,<code>version</code>,<code>manifest_version</code>,且<code>manifest_version</code>值只能为2；对于应用来说，还必须包含<code>app</code>属性。</p>
-<p>可选的常用的属性有很多，我们应该保留一份模板，在编写新扩展时直接填入新的值。</p>
-<p>PS : 对于非自定义属性，JavaScript可以直接像读取对象属性那样读取或更改。</p>
-<p>PPS : 《高性能JavaScript》、《编写可维护的JavaScript》</p>
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><p>选项在<code>less.js</code>文件的全局less对象上定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -434,7 +425,9 @@ HTML文件">
       
         <div class="post-tags">
           
-            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/less/" rel="tag">#less</a>
           
         </div>
       
@@ -443,17 +436,13 @@ HTML文件">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/14/atom常用插件及操作/" rel="next" title="atom常用插件及操作">
-                <i class="fa fa-chevron-left"></i> atom常用插件及操作
+              <a href="/2016/07/30/前端面试江湖总结/" rel="next" title="前端面试江湖总结">
+                <i class="fa fa-chevron-left"></i> 前端面试江湖总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/30/前端面试江湖总结/" rel="prev" title="前端面试江湖总结">
-                前端面试江湖总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +585,7 @@ HTML文件">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome扩展与应用开发"><span class="nav-number">1.</span> <span class="nav-text">Chrome扩展与应用开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初窥"><span class="nav-number">1.1.</span> <span class="nav-text">初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">1.1.1.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manifest文件格式"><span class="nav-number">1.3.</span> <span class="nav-text">Manifest文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.3.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest关键属性"><span class="nav-number">1.3.2.</span> <span class="nav-text">manifest关键属性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS预处理器-less篇"><span class="nav-number">1.</span> <span class="nav-text">CSS预处理器-less篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">1.2.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">命令行使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码使用"><span class="nav-number">1.2.3.</span> <span class="nav-text">代码使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器端使用"><span class="nav-number">1.2.4.</span> <span class="nav-text">浏览器端使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意："><span class="nav-number">1.2.4.1.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选项"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">选项</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
