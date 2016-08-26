@@ -99,10 +99,7 @@
 <meta name="description" content="[TOC]
 CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 Less 可以运行在 Node 或浏览器端。
-使用方法安装$ npm install -g less
-命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
-$ lessc styles.less
-将编">
+使用方法安装$ npm install -g less">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS预处理-less">
 <meta property="og:url" content="http://yoursite.com/2016/08/22/CSS预处理-less/index.html">
@@ -110,20 +107,14 @@ $ lessc styles.less
 <meta property="og:description" content="[TOC]
 CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 Less 可以运行在 Node 或浏览器端。
-使用方法安装$ npm install -g less
-命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
-$ lessc styles.less
-将编">
-<meta property="og:updated_time" content="2016-08-22T02:06:23.568Z">
+使用方法安装$ npm install -g less">
+<meta property="og:updated_time" content="2016-08-25T10:28:10.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS预处理-less">
 <meta name="twitter:description" content="[TOC]
 CSS预处理器-less篇简介Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 Less 可以运行在 Node 或浏览器端。
-使用方法安装$ npm install -g less
-命令行使用将less包全局安装，就可以命令行调用lessc命令来编译.less文件
-$ lessc styles.less
-将编">
+使用方法安装$ npm install -g less">
 
 
 
@@ -376,7 +367,8 @@ $ lessc styles.less
 <h2 id="CSS预处理器-less篇"><a href="#CSS预处理器-less篇" class="headerlink" title="CSS预处理器-less篇"></a>CSS预处理器-less篇</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
 <p>Less 可以运行在 Node 或浏览器端。</p>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>$ npm install -g less
-</code></pre><h4 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h4><p>将less包全局安装，就可以命令行调用<code>lessc</code>命令来编译.less文件</p>
+</code></pre><a id="more"></a>
+<h4 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h4><p>将less包全局安装，就可以命令行调用<code>lessc</code>命令来编译.less文件</p>
 <pre><code>$ lessc styles.less
 </code></pre><p>将编译结果输出到指定的.css文件</p>
 <pre><code>$ lessc styles.less styles.css
@@ -403,7 +395,7 @@ $ lessc styles.less
 <li>由于浏览器加载外部资源的同源策略，需要启用CORS</li>
 </ol>
 <h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><p>选项在<code>less.js</code>文件的全局less对象上定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- set options before less.js script --&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  less = &#123;</span><br><span class="line">    env: &quot;development&quot;,</span><br><span class="line">    async: false,</span><br><span class="line">    fileAsync: false,</span><br><span class="line">    poll: 1000,</span><br><span class="line">    functions: &#123;&#125;,</span><br><span class="line">    dumpLineNumbers: &quot;comments&quot;,</span><br><span class="line">    relativeUrls: false,</span><br><span class="line">    rootpath: &quot;:/a.com/&quot;</span><br><span class="line">  &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;less.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -443,6 +435,10 @@ $ lessc styles.less
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/响应式设计简析/" rel="prev" title="响应式设计简析">
+                响应式设计简析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -510,7 +506,7 @@ $ lessc styles.less
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -518,7 +514,7 @@ $ lessc styles.less
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -527,7 +523,7 @@ $ lessc styles.less
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

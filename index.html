@@ -295,6 +295,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/25/响应式设计简析/" itemprop="url">
+                  响应式设计简析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-25T17:12:36+08:00" content="2016-08-25">
+              2016-08-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+
+          // 插入位置
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="响应式设计初窥"><a href="#响应式设计初窥" class="headerlink" title="响应式设计初窥"></a>响应式设计初窥</h2><blockquote>
+<p>响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用</p>
+</blockquote>
+<h3 id="响应式中要面对的问题"><a href="#响应式中要面对的问题" class="headerlink" title="响应式中要面对的问题"></a>响应式中要面对的问题</h3><h4 id="像素密度-PPI"><a href="#像素密度-PPI" class="headerlink" title="像素密度(PPI)"></a>像素密度(PPI)</h4><p>PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/25/响应式设计简析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/22/CSS预处理-less/" itemprop="url">
                   CSS预处理-less
                 </a>
@@ -359,41 +479,16 @@
 
       
         
-          
-            <p>[TOC]</p>
+          <p>[TOC]</p>
 <h2 id="CSS预处理器-less篇"><a href="#CSS预处理器-less篇" class="headerlink" title="CSS预处理器-less篇"></a>CSS预处理器-less篇</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
 <p>Less 可以运行在 Node 或浏览器端。</p>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>$ npm install -g less
-</code></pre><h4 id="命令行使用"><a href="#命令行使用" class="headerlink" title="命令行使用"></a>命令行使用</h4><p>将less包全局安装，就可以命令行调用<code>lessc</code>命令来编译.less文件</p>
-<pre><code>$ lessc styles.less
-</code></pre><p>将编译结果输出到指定的.css文件</p>
-<pre><code>$ lessc styles.less styles.css
-</code></pre><p>使用<code>clean-css</code>插件将编译结果压缩后输出到指定文件</p>
-<pre><code>$ lessc --clean-css styles.less styles.min.css
-</code></pre><p>lessc命令查询帮助</p>
-<pre><code>$ lessc
-</code></pre><h4 id="代码使用"><a href="#代码使用" class="headerlink" title="代码使用"></a>代码使用</h4><p>从node调用编译器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var less = require(&apos;less&apos;);</span><br><span class="line"></span><br><span class="line">less.render(&apos;.class &#123; width: (1 + 1) &#125;&apos;, function (e, output) &#123;</span><br><span class="line">  console.log(output.css);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>将会打印输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class&#123;</span><br><span class="line">    width:2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>可以通过一些选项编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var less = require(&apos;less&apos;);</span><br><span class="line"></span><br><span class="line">less.render(&apos;.class &#123; width: (1 + 1) &#125;&apos;,</span><br><span class="line">    &#123;</span><br><span class="line">      paths: [&apos;.&apos;, &apos;./lib&apos;],  // Specify search paths for @import directives</span><br><span class="line">      filename: &apos;style.less&apos;, // Specify a filename, for better error messages</span><br><span class="line">      compress: true          // Minify CSS output</span><br><span class="line">    &#125;,</span><br><span class="line">    function (e, output) &#123;</span><br><span class="line">       console.log(output.css);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="浏览器端使用"><a href="#浏览器端使用" class="headerlink" title="浏览器端使用"></a>浏览器端使用</h4><blockquote>
-<p>引入less.js文件建议在开发环境中使用，不建议在生产环境中使用</p>
-</blockquote>
-<p>将link标签的rel属性设置为<code>rel = &quot;stylesheet/less&quot;</code></p>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;
-</code></pre><p>引入less.js文件</p>
-<pre><code>&lt;script src=&quot;less.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-</code></pre><h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ol>
-<li>样式表要在less.js前引入</li>
-<li>由于每个.less文件是单独编译，所以内部定义的变量，混合类型和命名空间不能访问</li>
-<li>由于浏览器加载外部资源的同源策略，需要启用CORS</li>
-</ol>
-<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><p>选项在<code>less.js</code>文件的全局less对象上定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-          
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/22/CSS预处理-less/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1405,138 +1500,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/29/ES6基本语法/" itemprop="url">
-                  ES6基本语法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T16:11:20+08:00" content="2016-05-29">
-              2016-05-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-
-          // 插入位置
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>[TOC]</p>
-<h3 id="ES6基本语法"><a href="#ES6基本语法" class="headerlink" title="ES6基本语法"></a>ES6基本语法</h3><h4 id="1-Let-Const-块级作用域和常量"><a href="#1-Let-Const-块级作用域和常量" class="headerlink" title="1.Let + Const 块级作用域和常量"></a>1.Let + Const 块级作用域和常量</h4><p><code>let</code></p>
-<ol>
-<li>定义局部变量，只在当前作用域内有效</li>
-<li>不存在变量提升</li>
-<li>不受外界作用域影响</li>
-<li>不允许重复声明</li>
-</ol>
-<p><code>const</code></p>
-<ol>
-<li>定义常量，只在当前作用域内有效</li>
-<li>声明后，常量值不能改变</li>
-<li>不存在变量提升</li>
-<li>不能重复声明</li>
-<li>指向常量所在地址</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/29/ES6基本语法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1582,7 +1545,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1590,7 +1553,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1599,7 +1562,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
