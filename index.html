@@ -360,7 +360,7 @@
       
         
           <h2 id="响应式设计初窥"><a href="#响应式设计初窥" class="headerlink" title="响应式设计初窥"></a>响应式设计初窥</h2><blockquote>
-<p>响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用</p>
+<p>响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用</p>
 </blockquote>
 <h3 id="响应式中要面对的问题"><a href="#响应式中要面对的问题" class="headerlink" title="响应式中要面对的问题"></a>响应式中要面对的问题</h3><h4 id="像素密度-PPI"><a href="#像素密度-PPI" class="headerlink" title="像素密度(PPI)"></a>像素密度(PPI)</h4><p>PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。</p>
           <div class="post-more-link text-center">
@@ -601,7 +601,8 @@
       
         
           <p>[TOC]</p>
-<h2 id="前端面试江湖"><a href="#前端面试江湖" class="headerlink" title="前端面试江湖"></a>前端面试江湖</h2><h3 id="JavaScript初级面试题"><a href="#JavaScript初级面试题" class="headerlink" title="JavaScript初级面试题"></a>JavaScript初级面试题</h3><p>JavaScript是基于对象的，事件驱动的</p>
+<h2 id="前端面试江湖"><a href="#前端面试江湖" class="headerlink" title="前端面试江湖"></a>前端面试江湖</h2><h3 id="常用API-随时增加"><a href="#常用API-随时增加" class="headerlink" title="常用API(随时增加)"></a>常用API(随时增加)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&apos;CSS选择器&apos;)  //按照深度优先和先序遍历，查找符合CSS选择器的第一个元素</span><br><span class="line"></span><br><span class="line">document.querySelectorAll(&apos;CSS选择器&apos;) //该方法返回所有满足条件的元素，结果是个nodeList集合。并且，它返回的是对象的快照，这也是它与document.getElementsByTagName()这些获取DOM对象的方法不同的地方。通俗点说，它返回的对象是死的，就算后面对这个元素进行了更改，它返回的对象也不会改变</span><br><span class="line"></span><br><span class="line">PS : 上述两个方法无法查找带伪类状态的元素</span><br><span class="line"></span><br><span class="line">classList DOM元素的属性，HTML5更新，用来获取元素的类名列表</span><br><span class="line"></span><br><span class="line">旗下的API：</span><br><span class="line">1. length 属性 表示类名的个数 只读</span><br><span class="line">2. item() 支持一个参数，既类名的索引，返回对应的类名，超出索引返回null</span><br><span class="line">3. add() 支持一个类名字符串参数。表示往类名列表中新增一个类名；如果之前类名存在，则添加忽略。</span><br><span class="line">4. remove() 支持一个类名字符串参数。表示往类名列表中移除该类名。</span><br><span class="line">5. toggle() 支持一个类名字符串参数。无则加勉，有则移除之意。若类名列表中有此类名，移除之，并返回false; 如果没有，则添加该类名，并返回true</span><br><span class="line">6. contains() 支持一个类名字符串参数。表示往类名列表中是否包含该类名。有点对应jQuery中的hasClass方法，注意，这里的是contains而不是contain，后面有个s哦！</span><br><span class="line">返回值很易懂的。如果包含，则返回true, 不包含，则false</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript初级面试题"><a href="#JavaScript初级面试题" class="headerlink" title="JavaScript初级面试题"></a>JavaScript初级面试题</h3><p>JavaScript是基于对象的，事件驱动的</p>
 <p>FireFox和IE存在大量兼容性问题，因为它们对Web标准支持不同</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/30/前端面试江湖总结/#more" rel="contents">

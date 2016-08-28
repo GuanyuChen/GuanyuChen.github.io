@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="响应式设计初窥
-响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用
+响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用
 
 响应式中要面对的问题像素密度(PPI)PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。">
 <meta property="og:type" content="article">
@@ -105,14 +105,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/25/响应式设计简析/index.html">
 <meta property="og:site_name" content="Guanyu">
 <meta property="og:description" content="响应式设计初窥
-响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用
+响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用
 
 响应式中要面对的问题像素密度(PPI)PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。">
-<meta property="og:updated_time" content="2016-08-25T11:05:43.670Z">
+<meta property="og:updated_time" content="2016-08-28T11:35:19.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式设计简析">
 <meta name="twitter:description" content="响应式设计初窥
-响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用
+响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用
 
 响应式中要面对的问题像素密度(PPI)PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。">
 
@@ -364,7 +364,7 @@
 
       
         <h2 id="响应式设计初窥"><a href="#响应式设计初窥" class="headerlink" title="响应式设计初窥"></a>响应式设计初窥</h2><blockquote>
-<p>响应式设计的主要目的是让网页适配当下种类繁多的设备，是页面在不同设备上看上去仍然友好可用</p>
+<p>响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用</p>
 </blockquote>
 <h3 id="响应式中要面对的问题"><a href="#响应式中要面对的问题" class="headerlink" title="响应式中要面对的问题"></a>响应式中要面对的问题</h3><h4 id="像素密度-PPI"><a href="#像素密度-PPI" class="headerlink" title="像素密度(PPI)"></a>像素密度(PPI)</h4><p>PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。</p>
 <a id="more"></a>
@@ -382,7 +382,7 @@
 <p>如果我们必须以设备像素进行开发，那么是非常繁琐的。因为每个设备的设备像素不一样，我们无法根据不同设备来提供如此多的素材。</p>
 <p>所以我们需要一种抽象单位，只告知设备这个素材占据了多少抽象单位，它可以根据设备缩放到合适的大小，合适的具体的设备像素。这种抽象单位叫 <strong>设备无关像素</strong></p>
 <p>CSS像素就是一种设备无关像素。</p>
-<p>所以我们不用关系在不同设备上一个CSS像素会匹配多少设备像素，设备会根据DPR在CSS基础上适当的放大缩小。</p>
+<p>所以我们不用关心在不同设备上一个CSS像素会匹配多少设备像素，设备会根据DPR在CSS基础上适当的放大缩小。</p>
 <p>BUT 字体是矢量，拉伸后足够清晰；图片是标量，会模糊(因为一个CSS像素会横跨多个设备像素，信息被多个设备像素瓜分)</p>
 <p>所以 需要为高清设备提供尺寸更大，细节更丰富的素材</p>
 <p><em>PS : 高清素材可以向下兼容，可以用CSS像素控制高清素材在标清设备上的大小</em></p>
@@ -400,7 +400,45 @@
 <h4 id="设备宽度-device-width"><a href="#设备宽度-device-width" class="headerlink" title="设备宽度(device-width)"></a>设备宽度(device-width)</h4><p>大多数情况下，我们希望以系统分辨率(视口大小)来渲染页面，尽可能的避免缩放.</p>
 <p>此时，可以将width参数设置为device-width(设备宽度)，无论什么设备，什么握持方式，都按照系统分辨率来渲染</p>
 <pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot; /&gt;
-</code></pre>
+</code></pre><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><blockquote>
+<p>衡量设计的标尺是它适应变化的难易程度<br>架构存在的意义是为了适应变化</p>
+</blockquote>
+<p>PS : 重点是解耦。开发者在修改A模块时，最好的情况是无需对BCD模块有任何的了解</p>
+<h4 id="浏览器的适配问题"><a href="#浏览器的适配问题" class="headerlink" title="浏览器的适配问题"></a>浏览器的适配问题</h4><p>主流框架都不约而同的放弃了对IE8及更早版本的支持，所以我们代码最低兼容至IE8</p>
+<h4 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h4><p>本文代码地址：<a href="https://github.com/GuanyuChen/ResponsiveDemo" title="响应式" target="_blank" rel="external">戳这里</a></p>
+<ol>
+<li>视口标签<br> 在head中引入<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot; /&gt;</code></li>
+<li>重置样式<br> 浏览器会对HTML元素赋予一个默认的样式，但不同的浏览器的默认样式可能会不同，所以我们应引入一个重置性质的样式来消除这些差异。<ul>
+<li>第一个选择是reset.css 它选择强制的把所有元素都重置来消除不同浏览器下的差别，但缺点是需要额外工作来恢复额外的样式</li>
+<li>第二个选择是normalize.css 它承认差异的存在，在保留浏览器默认样式基础上，通过新增代码来使元素样式在不同浏览器下行为一致</li>
+<li>自定义全局样式 将公用的样式存放在全局样式中，便于维护</li>
+</ul>
+</li>
+</ol>
+<h4 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h4><h5 id="桌面端"><a href="#桌面端" class="headerlink" title="桌面端"></a>桌面端</h5><h6 id="基本布局"><a href="#基本布局" class="headerlink" title="基本布局"></a>基本布局</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">    &lt;ul class=&quot;nav-container-list&quot;&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item4&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;clearfix&quot;&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>ul默认的内外编剧，a子代的默认下划线都是不需要的，导航栏背景色，字体颜色都是需要始终保持一致，所以在nav.css中清除默认样式和添加自定义样式</p>
+<p>让选项等宽向左浮动，且浮动会脱离文档流而导致父元素无法被撑开，所以需要清除浮动</p>
+<p>问题：</p>
+<ol>
+<li>当链接数目改变时，需要手动计算每个选项的宽度并进行更改</li>
+<li>当桌面显示器较宽而链接数较少时，链接过于分散</li>
+</ol>
+<p>第一个问题，可以用CSS3的<code>calc()</code>函数，让浏览器计算每个选项的宽度。<code>calc()</code>可以计算任何计算表达式， <strong>即使表达式中减数和被减数使用不同的单位</strong> 比如<code>calc(100% - 20px)</code>。</p>
+<p>第二个问题，给ul标签添加<code>max-width</code>属性来保证最大值不超过某个值</p>
+<p>PS : 原始的<code>width</code>要与<code>calc()</code>同时存在，且width在前。这样可以保证当浏览器不支持calc()时可以使用width值；如果支持，那么calc()也可以将前面的width覆盖掉</p>
+<p>问题：</p>
+<p>宽度设置在li上，导致a的可点击区域只跟文本有关，并且不同链接文字之间的间隔不同，影响美观。</p>
+<p>可以将宽度设置到a标签上，通过padding来实现垂直居中的效果，并且内边距也扩展了a的可点击区域。</p>
+<p>BUT li不再平分父容器宽度(宽度不是确定值)，而又是向左浮动的，会造成导航栏向左偏移</p>
+<p>这是可以不使用向左浮动效果，把display设置为inline-block(会自动行内水平居中)</p>
+<blockquote>
+<p>li是结构化块级元素–《精通 CSS 与 HTML 设计模式》</p>
+</blockquote>
+<h6 id="子菜单"><a href="#子菜单" class="headerlink" title="子菜单"></a>子菜单</h6><p>子菜单的实现就是在第一级的li标签中添加一个新的ul元素。<strong>子菜单相对于父容器li绝对定位，恰好在父元素下方(top:100%)，默认不显示</strong></p>
+<h5 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h5><p>移动端菜单是垂直排列，所以不需要担心横向排列情况下宽度和文字间距的问题</p>
+<p>手机屏幕的区域是非常有限的，默认情况下菜单应该处于收起状态，点击展开菜单栏，所以要添加一个按钮</p>
+<p>PS : 注意！！！当仅仅想使用a标签的点击效果而不想跳转时，一定要设置<code>&lt;a href=&quot;javascript:void(0)&quot;&gt;&lt;/a&gt;</code>来消除它的刷新效果。一定要注意！！！</p>
+
       
     </div>
 
@@ -581,7 +619,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.2.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的适配问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器的适配问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局样式"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.3.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面端"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">桌面端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本布局"><span class="nav-number">1.2.3.1.1.</span> <span class="nav-text">基本布局</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子菜单"><span class="nav-number">1.2.3.1.2.</span> <span class="nav-text">子菜单</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">移动端</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
