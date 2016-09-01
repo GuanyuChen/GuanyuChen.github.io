@@ -108,7 +108,7 @@
 响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用
 
 响应式中要面对的问题像素密度(PPI)PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。">
-<meta property="og:updated_time" content="2016-08-28T11:35:19.135Z">
+<meta property="og:updated_time" content="2016-09-01T08:24:24.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式设计简析">
 <meta name="twitter:description" content="响应式设计初窥
@@ -416,7 +416,7 @@
 </li>
 </ol>
 <h4 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h4><h5 id="桌面端"><a href="#桌面端" class="headerlink" title="桌面端"></a>桌面端</h5><h6 id="基本布局"><a href="#基本布局" class="headerlink" title="基本布局"></a>基本布局</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">    &lt;ul class=&quot;nav-container-list&quot;&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-list-item&quot;&gt;&lt;a href=&quot;&quot;&gt;item4&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;clearfix&quot;&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
-<p>ul默认的内外编剧，a子代的默认下划线都是不需要的，导航栏背景色，字体颜色都是需要始终保持一致，所以在nav.css中清除默认样式和添加自定义样式</p>
+<p>ul默认的内外边距，a子代的默认下划线都是不需要的，导航栏背景色，字体颜色都是需要始终保持一致，所以在nav.css中清除默认样式和添加自定义样式</p>
 <p>让选项等宽向左浮动，且浮动会脱离文档流而导致父元素无法被撑开，所以需要清除浮动</p>
 <p>问题：</p>
 <ol>
@@ -438,6 +438,72 @@
 <h5 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h5><p>移动端菜单是垂直排列，所以不需要担心横向排列情况下宽度和文字间距的问题</p>
 <p>手机屏幕的区域是非常有限的，默认情况下菜单应该处于收起状态，点击展开菜单栏，所以要添加一个按钮</p>
 <p>PS : 注意！！！当仅仅想使用a标签的点击效果而不想跳转时，一定要设置<code>&lt;a href=&quot;javascript:void(0)&quot;&gt;&lt;/a&gt;</code>来消除它的刷新效果。一定要注意！！！</p>
+<h3 id="布局-响应式篇"><a href="#布局-响应式篇" class="headerlink" title="布局-响应式篇"></a>布局-响应式篇</h3><h4 id="媒体查询-media-query"><a href="#媒体查询-media-query" class="headerlink" title="媒体查询(media query)"></a>媒体查询(media query)</h4><p>media query 表达式包含两类查询条件</p>
+<ol>
+<li><p>媒体类型(media type)</p>
+<p> 在W3C最新标准中，有4种媒体类型：</p>
+<ol>
+<li>all(所有设备)</li>
+<li>print(打印设备，包括浏览器的打印预览信息)</li>
+<li>speech(能读出页面的设备，供残疾人使用)</li>
+<li><p>srceen(除打印和屏读以外的所有设备)</p>
+<p>PS : 如果没规定媒体类型，默认all</p>
+</li>
+</ol>
+</li>
+<li><p>媒体特征表达式(media feature expression)</p>
+<p> 包含在设备上验证的媒体特征，包含但不限于:width,max-width,min-width,device-width,aspect-ratio,color,resolution(分辨率),orientation:landscape(手机水平放置)</p>
+</li>
+</ol>
+<p>媒体查询既可以写在样式表中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media srceen and (max-width:600px)&#123;</span><br><span class="line">    .sidebar&#123;</span><br><span class="line">        display:none;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以写在样式外链<code>&lt;link&gt;</code>中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;a.css&quot; media=&quot;srceen and (max-width:600px)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>由于上线和性能的考虑，不会采用外链上增加媒体查询来加载针对性的样式，会增加额外的请求</p>
+<blockquote>
+<p>媒体查询就是样式表中的if语句，也存在与、或、非来处理更复杂的情况</p>
+</blockquote>
+<p>与(and)</p>
+<p>使用and关键字来连接媒体类型和多个媒体特征，全部成立，样式才生效</p>
+<p>或(,)</p>
+<p>用逗号(,)来分割 <strong>多个媒体查询</strong> 任一样式成立都有效</p>
+<p>非(not)</p>
+<p>使用not关键字对当前媒体查询取反</p>
+<p>例：not (max-width:600px) 只有max-width不成立，媒体查询才不成立</p>
+<p>注意：</p>
+<ol>
+<li>当not与and同时出现时，not是对整个媒体查询生效，而不是对距离最近的媒体特征生效</li>
+<li>not与逗号分隔多个媒体查询同时存在时，只对它所在的媒体查询生效，不影响其他查询</li>
+</ol>
+<h4 id="媒体查询的策略"><a href="#媒体查询的策略" class="headerlink" title="媒体查询的策略"></a>媒体查询的策略</h4><ol>
+<li><p>顺序<br> 为了兼容多种设备，一般会提供多种媒体查询，此时顺序很重要。</p>
+<p> 媒体查询匹配规则与样式表一致，从后往前进行匹配，一旦匹配成功立刻终止。</p>
+</li>
+<li><p>max-width与min-width<br> 根据页面宽度由窄至宽划分(小于320px，320px-1024px，1024px以上)<br> ，分别提供三类布局，一般是这样的顺序：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@media (max-width:320px)&#123;</span><br><span class="line">&#125;</span><br><span class="line">@media (max-width:1024px) and (min-width:320px)&#123;</span><br><span class="line">&#125;</span><br><span class="line">@media (min-width:1024px)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 但其实还可以更简洁</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*设备宽度不足320px的移动设备*/</span><br><span class="line">html&#123;&#125;</span><br><span class="line"></span><br><span class="line">/*设备宽度在320px-1024px*/</span><br><span class="line">@media (min-width:320px)&#123;&#125;</span><br><span class="line"></span><br><span class="line">/*设备宽度大于1024px*/</span><br><span class="line">@media (min-width:1024px)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p> 这种方式叫移动优先(mobile-first)，页面优先采用移动样式，使用 <strong>min-width</strong> 来匹配宽度，随着宽度的增加样式逐渐向下匹配</p>
+<p> 与之相反的叫桌面优先，页面优先采用桌面样式，用 <strong>max-width</strong> 来匹配宽度，随着宽度的减小样式逐渐向下匹配</p>
+<p> 如果采用桌面优先，需要同时制定桌面和移动端的样式，而且为了保证移动端能够正常显示而不被桌面样式干扰，还需要对样式进行重置或覆盖。所以移动优先更具有优势。</p>
+</li>
+</ol>
+<h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><p>父元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">    display:flex;/*启用flex布局*/</span><br><span class="line">    flex-direction:row|row-reverse|column|column-reverse;/*主轴方向默认左-右|右-左|上-下|下-上*/</span><br><span class="line">    flex-wrap:nowrap|wrap|wrap-reverse;/*子元素单行显示|多行左-右|多行右-左*/</span><br><span class="line">    flex-flow:flex-direction flex-wrap缩写版本</span><br><span class="line">    justify-content:主轴对齐方式</span><br><span class="line">                    flex-start/*向一行的起始位置靠齐*/</span><br><span class="line">                    flex-end/*终止位置靠齐*/</span><br><span class="line">                    center/*居中靠齐，两边宽度一样*/</span><br><span class="line">                    space-between/*两端贴边，中间均分*/</span><br><span class="line">                    space-around/*两边剩余空间是两两剩余空间的一半*/</span><br><span class="line">    align-items:侧轴对齐方式</span><br><span class="line">                flex-center;</span><br><span class="line">                flex-end;</span><br><span class="line">                center;</span><br><span class="line">                baseline;/*按基线对齐*/</span><br><span class="line">                strech;/*完全填充侧轴*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.children&#123;</span><br><span class="line">    order:优先级 按数字由小到大排列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="相对单位-em"><a href="#相对单位-em" class="headerlink" title="相对单位 em"></a>相对单位 em</h4><p>em是相对 <strong>最近父元素</strong> 的字体大小的相对单位。</p>
+<p>比如body字体大小为16px，那么body中子元素字体1em大小即为16px</p>
+<p>一种使用em单位的实践：先将body字体大小设置为默认的62.5%，前提是默认大小为16px，这样热河em想还原为px，只需要*10</p>
+<h4 id="相对单位-rem"><a href="#相对单位-rem" class="headerlink" title="相对单位 rem"></a>相对单位 rem</h4><p>rem单位与em单位类似，只不过rem相对于 <strong>根元素html</strong> ，也就是说只要是html内的任何元素，只要字体大小采用rem作为单位，那么都是以html字体大小作为参照，即使该元素不是根元素的直接子元素。</p>
+<h4 id="如何使用这几种单位"><a href="#如何使用这几种单位" class="headerlink" title="如何使用这几种单位"></a>如何使用这几种单位</h4><p>首先，设计仍然需要绝对单位，需要px。</p>
+<p>实践思想：将页面分模块治之</p>
+<ol>
+<li>将页面根据文字特征划分为几个模块，如导航、标题和正文</li>
+<li>每一个模块的最外层的元素，如nav、header、article，都有自己的字体大小， <strong>该字体大小以个元素的字体大小为准，用rem取值</strong></li>
+<li>模块最外层元素的字体大小，则是作为该模块内各元素字体大小的基准。</li>
+</ol>
+<p>例如：设置<code>&lt;h1&gt;</code>元素的字体大小为2em，但在不同模块的h1大小是不一样的，根据模块调整字体大小。</p>
 
       
     </div>
@@ -619,7 +685,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.2.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的适配问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器的适配问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局样式"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.3.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面端"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">桌面端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本布局"><span class="nav-number">1.2.3.1.1.</span> <span class="nav-text">基本布局</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子菜单"><span class="nav-number">1.2.3.1.2.</span> <span class="nav-text">子菜单</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">移动端</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.2.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的适配问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器的适配问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局样式"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.3.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面端"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">桌面端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本布局"><span class="nav-number">1.2.3.1.1.</span> <span class="nav-text">基本布局</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子菜单"><span class="nav-number">1.2.3.1.2.</span> <span class="nav-text">子菜单</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">移动端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局-响应式篇"><span class="nav-number">1.3.</span> <span class="nav-text">布局-响应式篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询-media-query"><span class="nav-number">1.3.1.</span> <span class="nav-text">媒体查询(media query)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询的策略"><span class="nav-number">1.3.2.</span> <span class="nav-text">媒体查询的策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex布局"><span class="nav-number">1.3.3.</span> <span class="nav-text">flex布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-em"><span class="nav-number">1.3.4.</span> <span class="nav-text">相对单位 em</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-rem"><span class="nav-number">1.3.5.</span> <span class="nav-text">相对单位 rem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用这几种单位"><span class="nav-number">1.3.6.</span> <span class="nav-text">如何使用这几种单位</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
