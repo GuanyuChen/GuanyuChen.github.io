@@ -108,7 +108,7 @@
 响应式设计的主要目的是让网页适配当下种类繁多的设备，使页面在不同设备上看上去仍然友好可用
 
 响应式中要面对的问题像素密度(PPI)PPI(Pixel Per Inch)直译为像素每英寸，表达的是在一英寸大小的方块中有多少个设备像素(物理像素)，也就是像素密度。">
-<meta property="og:updated_time" content="2016-09-03T12:07:50.102Z">
+<meta property="og:updated_time" content="2016-09-03T13:52:32.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式设计简析">
 <meta name="twitter:description" content="响应式设计初窥
@@ -527,6 +527,42 @@
 </ol>
 <p>为父元素添加对应类名<code>.flex-enable</code>,<code>.flex-column</code>,<code>.flex-justify-space-around</code></p>
 <h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>将<code>box-sizing</code>调整为<code>border-box</code>，这样在调整padding时不影响布局</p>
+<h3 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h3><p>页面中最重要的两个元素是图片和文字。</p>
+<p>图片与文字相比具有更大的体积，需要更长的加载时间，在某些情况下甚至会阻塞后面内容的加载。</p>
+<p>标题中的响应式图片因为是背景图片，所以可以通过<code>background-size:cover;</code>来控制图片始终覆盖着容器；但是通过<code>&lt;img&gt;</code>标签加载的图片就没有那么幸运了，不能固定它的宽度，因为响应式容器中它的父容器、它所在的页面宽度都会发生变化；也不能不做限制，因为没有宽度限制，img标签会按照图片原始尺寸显示图片。</p>
+<p>所以，响应式图片的需求：</p>
+<ol>
+<li>图片能跟着父容器的宽度变化而变化</li>
+<li>图片宽度受限于父容器，不可按照图片原始尺寸展现</li>
+</ol>
+<p>常用的想法是： <strong>将图片最大宽度max-width设置为100% ，这样当图片宽度大于父容器时，被限制在父容器内，小于父容器时，可以按照实际尺寸展现</strong></p>
+<p>PS : 文字是流式的，会遇到父容器的边界自动换行自适应</p>
+<h4 id="响应式图片用例"><a href="#响应式图片用例" class="headerlink" title="响应式图片用例"></a>响应式图片用例</h4><ol>
+<li>基于屏幕分辨率(resolution-based selection) 最原始最野蛮</li>
+<li>基于视口(viewport-based selection) 简单的来说，我们不用关心分辨率，只需要关心视口大小</li>
+<li>基于设备像素比(device pixel ratio) 高PPI导致单个设备像素过小难以辨别，通常情况下一个CSS像素会等于多个设备像素，这个CSS像素与设备像素的比值称为设备像素比。</li>
+<li>基于美术设计(art direction) 等比例缩放并非是缩小图片的最佳方式，可能要对图像进行剪裁来裁取图像的重点信息</li>
+</ol>
+<h4 id="srcset语法"><a href="#srcset语法" class="headerlink" title="srcset语法"></a>srcset语法</h4><p>需求：需要为同一个img元素准备多张图片，并且这个img能够根据情况选择性加载图片</p>
+<p>srcset属性值是由一系列 <em>由逗号分隔的字符串组成</em>， <strong>每段被分割的字符串又是由一个图片地址和对应的期望匹配设备信息组成</strong> .</p>
+<p>设备描述信息科分为两类：视口宽度(像素值，但视口宽度数值后加上w结尾)和像素密度(设备响度比加上x结尾)</p>
+<pre><code>&lt;img src=&quot;small.jpg&quot; srcset=&quot;medium.jpg 600w,large.jpg 800w&quot; /&gt;
+</code></pre><p>大部分浏览器支持移动优先。所以首先加载较小图片，然后视口宽度大于600px时加载medium.jpg，大于800px时加载large.jpg.</p>
+<p>实际中(Chrome) : </p>
+<ol>
+<li>如果浏览器支持srcset属性，那么src属性中的图片永远不会生效，浏览器首先根据srcset的规则来加载图片</li>
+<li>当浏览器加载完宽屏状态下的图片，即使浏览器变窄，可以出发srcset中的某条规则，浏览器也不会加载其他图片。</li>
+<li>Chrome会充分利用缓存，如果缓存中有上次访问留下的高清图，即使是从窄屏开始访问，也会加载高清图</li>
+</ol>
+<h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a><picture>元素</picture></h4><h5 id="sizes属性"><a href="#sizes属性" class="headerlink" title="sizes属性"></a>sizes属性</h5><p>语法：<code>sizes=&quot;media query length,media query length,media query length,etc&quot;</code></p>
+<p>sizes属性值由一系列由逗号隔开的 <strong>描述图片宽度的表达式</strong> 组成，每一组包含两部分：media query代表查询的匹配条件，length代表该查询条件下图片占用的宽度。最后一个表达式可以只描述图片大小，表示在默认查询条件下的图片占用宽度。</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sizes=&quot;(max-width:640px) 100vw,</span><br><span class="line">        (max-width:960px) 50vw,</span><br><span class="line">        clac(100vw/3)&quot;</span><br></pre></td></tr></table></figure></p>
+<p>翻译之后的逻辑：</p>
+<ol>
+<li>当视口的宽度不超640时，图片宽度为视口宽度的100%；</li>
+<li>当视口宽度大于640但小于960时，图片宽度为视口宽度的50%；</li>
+<li>当视口宽度大于960时(默认情况)，图片宽度为视口的1/3。 </li>
+</ol>
 
       
     </div>
@@ -566,6 +602,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/JavaScriptDOM编程艺术赏析/" rel="prev" title="JavaScriptDOM编程艺术赏析">
+                JavaScriptDOM编程艺术赏析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -633,7 +673,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -641,7 +681,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -650,7 +690,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -708,7 +748,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.2.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的适配问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器的适配问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局样式"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.3.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面端"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">桌面端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本布局"><span class="nav-number">1.2.3.1.1.</span> <span class="nav-text">基本布局</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子菜单"><span class="nav-number">1.2.3.1.2.</span> <span class="nav-text">子菜单</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">移动端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局-响应式篇"><span class="nav-number">1.3.</span> <span class="nav-text">布局-响应式篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询-media-query"><span class="nav-number">1.3.1.</span> <span class="nav-text">媒体查询(media query)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询的策略"><span class="nav-number">1.3.2.</span> <span class="nav-text">媒体查询的策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex布局"><span class="nav-number">1.3.3.</span> <span class="nav-text">flex布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-em"><span class="nav-number">1.3.4.</span> <span class="nav-text">相对单位 em</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-rem"><span class="nav-number">1.3.5.</span> <span class="nav-text">相对单位 rem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用这几种单位"><span class="nav-number">1.3.6.</span> <span class="nav-text">如何使用这几种单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题布局"><span class="nav-number">1.3.7.</span> <span class="nav-text">标题布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本结构"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">基本结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#细节调整"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">细节调整</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文字居中"><span class="nav-number">1.3.7.3.</span> <span class="nav-text">文字居中</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">1.3.8.</span> <span class="nav-text">正文</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式设计初窥"><span class="nav-number">1.</span> <span class="nav-text">响应式设计初窥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式中要面对的问题"><span class="nav-number">1.1.</span> <span class="nav-text">响应式中要面对的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#像素密度-PPI"><span class="nav-number">1.1.1.</span> <span class="nav-text">像素密度(PPI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS像素-PX"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS像素(PX)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视口"><span class="nav-number">1.1.3.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面浏览器视口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">桌面浏览器视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端浏览器视口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">移动端浏览器视口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备宽度-device-width"><span class="nav-number">1.1.4.</span> <span class="nav-text">设备宽度(device-width)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.2.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的适配问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器的适配问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局样式"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.3.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#桌面端"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">桌面端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本布局"><span class="nav-number">1.2.3.1.1.</span> <span class="nav-text">基本布局</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子菜单"><span class="nav-number">1.2.3.1.2.</span> <span class="nav-text">子菜单</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">移动端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局-响应式篇"><span class="nav-number">1.3.</span> <span class="nav-text">布局-响应式篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询-media-query"><span class="nav-number">1.3.1.</span> <span class="nav-text">媒体查询(media query)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询的策略"><span class="nav-number">1.3.2.</span> <span class="nav-text">媒体查询的策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex布局"><span class="nav-number">1.3.3.</span> <span class="nav-text">flex布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-em"><span class="nav-number">1.3.4.</span> <span class="nav-text">相对单位 em</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对单位-rem"><span class="nav-number">1.3.5.</span> <span class="nav-text">相对单位 rem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用这几种单位"><span class="nav-number">1.3.6.</span> <span class="nav-text">如何使用这几种单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题布局"><span class="nav-number">1.3.7.</span> <span class="nav-text">标题布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本结构"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">基本结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#细节调整"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">细节调整</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文字居中"><span class="nav-number">1.3.7.3.</span> <span class="nav-text">文字居中</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">1.3.8.</span> <span class="nav-text">正文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式图片"><span class="nav-number">1.4.</span> <span class="nav-text">响应式图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式图片用例"><span class="nav-number">1.4.1.</span> <span class="nav-text">响应式图片用例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#srcset语法"><span class="nav-number">1.4.2.</span> <span class="nav-text">srcset语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素"><span class="nav-number">1.4.3.</span> <span class="nav-text">元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sizes属性"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">sizes属性</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
